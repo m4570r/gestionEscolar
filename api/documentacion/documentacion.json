@@ -1,0 +1,1498 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "La API de Gestión Escolar permite a los usuarios administrar, consultar y modificar información relacionada con el proceso académico, salud, etnias, regiones, comunas, programas sociales, cursos y colegios anteriores de los estudiantes. A través de esta API, los administradores y personal autorizado pueden acceder y manipular de manera eficiente la información almacenada en la base de datos del sistema.",
+        "version": "1.0.6",
+        "title": "Gestion de Matriculas Escolar",
+        "termsOfService": "http://127.0.0.1/documentacion.json",
+        "contact": {
+            "email": "mgonzalez.gnu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "127.0.0.1",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Sistema",
+            "description": "Información general del sistema"
+        },
+        {
+            "name": "Regiones",
+            "description": "Operaciones relacionadas con las regiones"
+        },
+        {
+            "name": "Comunas",
+            "description": "Operaciones relacionadas con las comunas"
+        },
+        {
+            "name": "Programas Sociales",
+            "description": "Operaciones sobre programas sociales"
+        },
+        {
+            "name": "Etnias",
+            "description": "Operaciones sobre etnias"
+        },
+        {
+            "name": "Cursos",
+            "description": "Operaciones sobre cursos"
+        },
+        {
+            "name": "Colegios Anteriores",
+            "description": "Operaciones sobre colegios anteriores"
+        },
+        {
+            "name": "Usuarios",
+            "description": "Operaciones sobre usuarios"
+        },
+        {
+            "name": "Alumnos",
+            "description": "Operaciones sobre alumnos"
+        },
+        {
+            "name": "Matrículas",
+            "description": "Operaciones sobre matrículas"
+        },
+        {
+            "name": "Salud",
+            "description": "Operaciones relacionadas con la salud"
+        },
+        {
+            "name": "Documentos Apoderado",
+            "description": "Operaciones sobre documentos de apoderados"
+        },
+        {
+            "name": "Documentos Compartidos",
+            "description": "Operaciones sobre documentos compartidos"
+        },
+        {
+            "name": "Roles de Usuario",
+            "description": "Operaciones sobre roles de usuario"
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/api/v1/2023/index.php?version": {
+            "get": {
+                "tags": [
+                    "Sistema"
+                ],
+                "summary": "Obtiene la versión del sistema",
+                "description": "Este endpoint proporciona información meta sobre la API, incluyendo la versión actual de la API, el nombre del colegio y un mensaje personalizado. Es útil para verificar rápidamente la funcionalidad básica del servicio y para identificar detalles sobre la versión actual de la API.",
+                "operationId": "getVersion",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "version": {
+                                    "type": "string",
+                                    "example": "1.0.0"
+                                },
+                                "nombreColegio": {
+                                    "type": "string",
+                                    "example": "escuela"
+                                },
+                                "mensaje": {
+                                    "type": "string",
+                                    "example": "API escrita en PHP"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la versión o el nombre del colegio"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?usuarios": {
+            "get": {
+                "tags": ["Usuarios"],
+                "summary": "Retorna todos los usuarios",
+                "description": "Este endpoint proporciona información sobre todos los usuarios registrados en el sistema.",
+                "operationId": "getTodosUsuarios",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": { "type": "integer", "example": 1 },
+                                    "nombre": { "type": "string", "example": "Juan Pablo Perez" },
+                                    "rut": { "type": "string", "example": "12345678-9" },
+                                    "fechaNacimiento": { "type": "string", "format": "date", "example": "2008-02-15" },
+                                    "domicilio": { "type": "string", "example": "Calle Alumnos" },
+                                    "calle": { "type": "string", "example": "Calle A" },
+                                    "numero": { "type": "string", "example": "15" },
+                                    "idComuna": { "type": "integer", "example": 1 },
+                                    "email": { "type": "string", "example": "juanperezactualizado@gmail.com" },
+                                    "telefono": { "type": "string", "example": "987654321" },
+                                    "nivel": { "type": "integer", "example": 4 }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?usuarios&id={id}": {
+            "get": {
+                "tags": ["Usuarios"],
+                "summary": "Consulta información de un usuario por su ID",
+                "description": "Este endpoint proporciona información sobre un usuario específico si se proporciona un ID.",
+                "operationId": "getUsuarioPorId",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "query",
+                    "description": "ID del usuario a consultar",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "usuario": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "nombre": { "type": "string", "example": "Juan Pablo Perez" },
+                                        "rut": { "type": "string", "example": "12345678-9" },
+                                        "fechaNacimiento": { "type": "string", "format": "date", "example": "2008-02-15" },
+                                        "domicilio": { "type": "string", "example": "Calle Alumnos" },
+                                        "calle": { "type": "string", "example": "Calle A" },
+                                        "numero": { "type": "string", "example": "15" },
+                                        "idComuna": { "type": "integer", "example": 1 },
+                                        "email": { "type": "string", "example": "juanperezactualizado@gmail.com" },
+                                        "telefono": { "type": "string", "example": "987654321" },
+                                        "nivel": { "type": "integer", "example": 4 }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró el usuario con el ID proporcionado"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?regiones": {
+            "get": {
+                "tags": ["Regiones"],
+                "summary": "Obtiene una lista de todas las regiones",
+                "description": "Este endpoint proporciona una lista con la información de todas las regiones disponibles.",
+                "operationId": "getRegiones",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "regiones": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "idRegion": { "type": "integer", "example": 1 },
+                                            "nombreRegion": { "type": "string", "example": "Valparaíso" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de regiones"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?comunas": {
+            "get": {
+                "tags": ["Comunas"],
+                "summary": "Obtiene una lista de todas las comunas",
+                "description": "Este endpoint proporciona una lista con la información de todas las comunas disponibles.",
+                "operationId": "getAllComunas",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "comunas": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Comuna A1" },
+                                            "idRegion": { "type": "integer", "example": 1 }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de comunas"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?comunasPorRegion&idRegion={idRegion}": {
+            "get": {
+                "tags": ["Comunas"],
+                "summary": "Obtiene una lista de comunas por región",
+                "description": "Este endpoint proporciona una lista de comunas según el ID de la región especificada.",
+                "operationId": "getComunasByRegion",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idRegion",
+                        "in": "path",
+                        "description": "ID de la región para filtrar las comunas",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "comunas": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Comuna A1" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de comunas por región"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }, 
+        "/api/v1/2023/index.php?programasSociales": {
+            "get": {
+                "tags": ["Programas Sociales"],
+                "summary": "Obtiene una lista de todos los programas sociales",
+                "description": "Este endpoint proporciona una lista con la información de todos los programas sociales disponibles.",
+                "operationId": "getAllProgramasSociales",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "programas": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Programa A" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de programas sociales"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?programasSociales&id={id}": {
+            "get": {
+                "tags": ["Programas Sociales"],
+                "summary": "Obtiene información de un programa social específico por ID",
+                "description": "Este endpoint proporciona información detallada de un programa social según el ID especificado.",
+                "operationId": "getProgramaSocialById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del programa social a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "programa": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "nombre": { "type": "string", "example": "Programa A" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró el programa social con el ID proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró el programa social con el ID proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información del programa social"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?etnias": {
+            "get": {
+                "tags": ["Etnias"],
+                "summary": "Obtiene una lista de todas las etnias",
+                "description": "Este endpoint proporciona una lista con la información de todas las etnias disponibles.",
+                "operationId": "getAllEtnias",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "etnias": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Etnia A" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de etnias"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?etnias&id={id}": {
+            "get": {
+                "tags": ["Etnias"],
+                "summary": "Obtiene información de una etnia específica por ID",
+                "description": "Este endpoint proporciona información detallada de una etnia según el ID especificado.",
+                "operationId": "getEtniaById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la etnia a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "etnia": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "nombre": { "type": "string", "example": "Etnia A" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró la etnia con el ID proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró la etnia con el ID proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información de la etnia"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?cursos": {
+            "get": {
+                "tags": ["Cursos"],
+                "summary": "Obtiene una lista de todos los cursos",
+                "description": "Este endpoint proporciona una lista con la información de todos los cursos disponibles.",
+                "operationId": "getAllCursos",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "cursos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Curso 1A" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de cursos"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?cursos&id={id}": {
+            "get": {
+                "tags": ["Cursos"],
+                "summary": "Obtiene información de un curso específico por ID",
+                "description": "Este endpoint proporciona información detallada de un curso según el ID especificado.",
+                "operationId": "getCursoById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del curso a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "curso": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "nombre": { "type": "string", "example": "Curso 1A" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró el curso con el ID proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró el curso con el ID proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información del curso"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?colegiosAnteriores": {
+            "get": {
+                "tags": ["Colegios Anteriores"],
+                "summary": "Obtiene una lista de todos los colegios anteriores",
+                "description": "Este endpoint proporciona una lista con la información de todos los colegios anteriores disponibles.",
+                "operationId": "getAllColegiosAnteriores",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "colegiosAnteriores": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "nombre": { "type": "string", "example": "Colegio Antiguo A" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de colegios anteriores"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?colegiosAnteriores&id={id}": {
+            "get": {
+                "tags": ["Colegios Anteriores"],
+                "summary": "Obtiene información de un colegio anterior específico por ID",
+                "description": "Este endpoint proporciona información detallada de un colegio anterior según el ID especificado.",
+                "operationId": "getColegioAnteriorById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del colegio anterior a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "colegioAnterior": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "nombre": { "type": "string", "example": "Colegio Antiguo A" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró el colegio anterior con el ID proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró el colegio anterior con el ID proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información del colegio anterior"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?alumnos": {
+            "get": {
+                "tags": ["Alumnos"],
+                "summary": "Obtiene una lista de todos los alumnos",
+                "description": "Este endpoint proporciona una lista con la información de todos los alumnos disponibles.",
+                "operationId": "getAllAlumnos",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "alumnos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "idUsuario": { "type": "integer", "example": 1 },
+                                            "sexo": { "type": "string", "example": "Masculino" },
+                                            "viveCon": { "type": "string", "example": "Ambos" },
+                                            "viveConEspecificar": { "type": "string", "example": null },
+                                            "idProgramaSocial": { "type": "integer", "example": 1 },
+                                            "idEtnia": { "type": "integer", "example": 1 },
+                                            "repetidoCurso": { "type": "string", "example": "No" },
+                                            "idColegioAnterior": { "type": "integer", "example": 1 },
+                                            "necesitaTransporte": { "type": "string", "example": "Si" },
+                                            "sectorTransporte": { "type": "string", "example": "Norte" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de alumnos"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?alumnos&idUsuario={idUsuario}": {
+            "get": {
+                "tags": ["Alumnos"],
+                "summary": "Obtiene información de un alumno específico por ID de usuario",
+                "description": "Este endpoint proporciona información detallada de un alumno según el ID de usuario especificado.",
+                "operationId": "getAlumnoByIdUsuario",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idUsuario",
+                        "in": "path",
+                        "description": "ID del usuario del alumno a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "alumno": {
+                                    "type": "object",
+                                    "properties": {
+                                        "idUsuario": { "type": "integer", "example": 1 },
+                                        "sexo": { "type": "string", "example": "Masculino" },
+                                        "viveCon": { "type": "string", "example": "Ambos" },
+                                        "viveConEspecificar": { "type": "string", "example": null },
+                                        "idProgramaSocial": { "type": "integer", "example": 1 },
+                                        "idEtnia": { "type": "integer", "example": 1 },
+                                        "repetidoCurso": { "type": "string", "example": "No" },
+                                        "idColegioAnterior": { "type": "integer", "example": 1 },
+                                        "necesitaTransporte": { "type": "string", "example": "Si" },
+                                        "sectorTransporte": { "type": "string", "example": "Norte" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró al alumno con el ID de usuario proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró al alumno con el ID de usuario proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información del alumno"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?matriculas": {
+            "get": {
+                "tags": ["Matrículas"],
+                "summary": "Obtiene una lista de todas las matrículas",
+                "description": "Este endpoint proporciona una lista con la información de todas las matrículas disponibles.",
+                "operationId": "getAllMatriculas",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "matriculas": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 1 },
+                                            "idAlumno": { "type": "integer", "example": 1 },
+                                            "idFuncionario": { "type": "integer", "example": 1 },
+                                            "idCurso": { "type": "integer", "example": 1 },
+                                            "fechaMatricula": { "type": "string", "example": "2023-08-01" },
+                                            "fechaRetiro": { "type": "string", "example": "2023-08-07" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de matrículas"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?matriculas&id={id}": {
+            "get": {
+                "tags": ["Matrículas"],
+                "summary": "Obtiene información de una matrícula específica por ID",
+                "description": "Este endpoint proporciona información detallada de una matrícula según el ID especificado.",
+                "operationId": "getMatriculaById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la matrícula a consultar",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "matricula": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer", "example": 1 },
+                                        "idAlumno": { "type": "integer", "example": 1 },
+                                        "idFuncionario": { "type": "integer", "example": 1 },
+                                        "idCurso": { "type": "integer", "example": 1 },
+                                        "fechaMatricula": { "type": "string", "example": "2023-08-01" },
+                                        "fechaRetiro": { "type": "string", "example": "2023-08-07" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró la matrícula con el ID proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró la matrícula con el ID proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información de la matrícula"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?salud&idAlumno={idAlumno}": {
+            "get": {
+                "tags": ["Salud"],
+                "summary": "Obtiene información de salud de un alumno específico por ID",
+                "description": "Este endpoint proporciona información detallada de salud de un alumno según el ID especificado.",
+                "operationId": "getRegistroSaludById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idAlumno",
+                        "in": "path",
+                        "description": "ID del alumno para consultar su registro de salud",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "registroSalud": {
+                                    "type": "object",
+                                    "properties": {
+                                        "idAlumno": { "type": "integer", "example": 1 },
+                                        "tratamientoMedico": { "type": "string", "example": "Tratamiento G" },
+                                        "programaEscolar": { "type": "string", "example": "Programa 1" },
+                                        "contraindicacionMedica": { "type": "string", "example": "No" },
+                                        "alergiaMedicamento": { "type": "string", "example": "Alergia medicamento G" },
+                                        "alergiaAlimento": { "type": "string", "example": "Alergia alimento A" },
+                                        "antecedentesTrastornos": { "type": "string", "example": "Antecedente A" },
+                                        "previsionSocial": { "type": "string", "example": "FONASA" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No se encontró el registro de salud con el ID de alumno proporcionado",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "No se encontró el registro de salud con el ID de alumno proporcionado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener información del registro de salud"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?documentosApoderado": {
+            "get": {
+                "tags": ["Documentos Apoderado"],
+                "summary": "Obtiene la lista de documentos presentados por el apoderado de todos los alumnos",
+                "description": "Este endpoint proporciona una lista de todos los documentos presentados por los apoderados de los alumnos.",
+                "operationId": "getDocumentosApoderado",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "documentos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "idAlumno": { "type": "integer", "example": 1 },
+                                            "certificadoEstudios": { "type": "string", "example": "Si" },
+                                            "informePersonalidad": { "type": "string", "example": "No" },
+                                            "informeNotas": { "type": "string", "example": "Si" },
+                                            "fotocopiaHojaVida": { "type": "string", "example": "No" },
+                                            "boletaAporte": { "type": "string", "example": "Si" },
+                                            "certificadoMedico": { "type": "string", "example": "No" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de documentos"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?documentosCompartidos": {
+            "get": {
+                "tags": ["Documentos Compartidos"],
+                "summary": "Obtiene la lista de documentos compartidos con todos los alumnos",
+                "description": "Este endpoint proporciona una lista de todos los documentos compartidos con los alumnos.",
+                "operationId": "getDocumentosCompartidos",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "documentos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "idAlumno": { "type": "integer", "example": 1 },
+                                            "reglamentoInterno": { "type": "string", "example": "Si" },
+                                            "textoEscolarGratis": { "type": "string", "example": "Si" },
+                                            "reglamentoEvaluacion": { "type": "string", "example": "No" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de documentos compartidos"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?rolesUsuario": {
+            "get": {
+                "tags": ["Roles de Usuario"],
+                "summary": "Obtiene la lista de roles de usuario disponibles",
+                "description": "Este endpoint proporciona una lista de todos los roles de usuario registrados en el sistema.",
+                "operationId": "getRolesUsuario",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "roles": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { "type": "integer", "example": 2 },
+                                            "nombre": { "type": "string", "example": "none" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al obtener la lista de roles de usuario"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }       
+        
+
+
+
+        
+        
+    },
+    "definitions": {
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "Usuario": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" },
+                "rol": { "$ref": "#/definitions/RolesUsuario" }
+            }
+        },
+        "Alumno": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" },
+                "apellido": { "type": "string" },
+                "etnia": { "$ref": "#/definitions/Etnia" },
+                "comuna": { "$ref": "#/definitions/Comuna" }
+            }
+        },
+        "Etnia": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" }
+            }
+        },
+        "Region": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" }
+            }
+        },
+        "Comuna": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" },
+                "region": { "$ref": "#/definitions/Region" }
+            }
+        },
+        "RolesUsuario": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "integer", "format": "int64" },
+                "nombre": { "type": "string" }
+            }
+        },
+        "Salud": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "tratamientoMedico": { "type": "string" },
+                "programaEscolar": { "type": "string" },
+                "contraindicacionMedica": { "type": "string" },
+                "alergiaMedicamento": { "type": "string" },
+                "alergiaAlimento": { "type": "string" },
+                "antecedentesTrastornos": { "type": "string" },
+                "previsionSocial": { "type": "string" }
+            }
+        },
+        "ProgramaSocial": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "nombrePrograma": { "type": "string" },
+                "detalle": { "type": "string" },
+            }
+        },
+        "ColegiosAnteriores": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "nombreColegio": { "type": "string" },
+                "anioEgreso": { "type": "integer", "format": "int32" },
+                "razonRetiro": { "type": "string" },
+            }
+        },
+        "Matriculas": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "fechaMatricula": { "type": "string", "format": "date-time" },
+                "anioEscolar": { "type": "integer", "format": "int32" },
+                "estadoMatricula": { "type": "string" },
+            }
+        },
+        
+        "DocumentosApoderado": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "certificadoEstudios": { "type": "string" },
+                "informePersonalidad": { "type": "string" },
+                "informeNotas": { "type": "string" },
+                "fotocopiaHojaVida": { "type": "string" },
+                "boletaAporte": { "type": "string" },
+                "certificadoMedico": { "type": "string" }
+            }
+        },
+        "DocumentosCompartidos": {
+            "type": "object",
+            "properties": {
+                "idAlumno": { "type": "integer", "format": "int64" },
+                "reglamentoInterno": { "type": "string" },
+                "textoEscolarGratis": { "type": "string" },
+                "reglamentoEvaluacion": { "type": "string" }
+            }
+        },
+        "Version": {
+            "type": "object",
+            "properties": {
+                "idVersion": { "type": "integer", "format": "int64" },
+                "nombreVersion": { "type": "string" },
+                "fechaLanzamiento": { "type": "string", "format": "date-time" },
+                "descripcion": { "type": "string" }
+            }
+        }
+    }
+    
+}
