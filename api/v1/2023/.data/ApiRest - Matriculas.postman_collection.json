@@ -1,0 +1,5640 @@
+{
+	"info": {
+		"_postman_id": "8cc1dda1-a1e8-4e2c-9395-a84e3d5b489f",
+		"name": "ApiRest - Matriculas",
+		"description": "### **API de Gestión Escolar**\n\nLa API de Gestión Escolar permite a los usuarios administrar, consultar y modificar información relacionada con el proceso académico, salud, etnias, regiones, comunas, programas sociales, cursos y colegios anteriores de los estudiantes. A través de esta API, los administradores y personal autorizado pueden acceder y manipular de manera eficiente la información almacenada en la base de datos del sistema.\n\n**End Points**:\n\n1. **Alumnos**: \n   \n   - **Descripción**: Permite gestionar los registros de los alumnos.\n   - **Operaciones**: Listar, obtener detalle, crear, actualizar y eliminar registros.\n\n2. **DocumentosApoderado**:\n\n   - **Descripción**: Administra los documentos presentados por los apoderados en relación con sus pupilos.\n   - **Operaciones**: Listar, obtener detalle, crear, actualizar y eliminar documentos.\n\n3. **Matricula**:\n\n   - **Descripción**: Gestiona la matrícula y el retiro de los estudiantes.\n   - **Operaciones**: Listar, obtener detalle, registrar, modificar y anular matrículas.\n\n4. **Salud**:\n\n   - **Descripción**: Permite acceder a la información de salud relevante de los estudiantes.\n   - **Operaciones**: Listar, obtener detalle, agregar, modificar y eliminar registros.\n\n5. **Etnias**:\n\n   - **Descripción**: Administra la información sobre las diferentes etnias reconocidas en el sistema.\n   - **Operaciones**: Listar, obtener detalle, agregar, modificar y eliminar etnias.\n\n6. **RolesUsuario**:\n\n   - **Descripción**: Gestiona los roles de usuario dentro de la plataforma.\n   - **Operaciones**: Listar, obtener detalle, crear, actualizar y eliminar roles.\n\n7. **Regiones**:\n\n   - **Descripción**: Administra las regiones geográficas registradas en el sistema.\n   - **Operaciones**: Listar, obtener detalle, agregar, modificar y eliminar regiones.\n\n8. **Comunas**:\n\n   - **Descripción**: Gestiona las comunas dentro de cada región.\n   - **Operaciones**: Listar, obtener detalle, agregar, modificar y eliminar comunas.\n\n9. **ProgramasSociales**:\n\n   - **Descripción**: Administra los programas sociales a los que los estudiantes pueden tener acceso.\n   - **Operaciones**: Listar, obtener detalle, crear, actualizar y eliminar programas.\n\n10. **Cursos**:\n\n   - **Descripción**: Gestiona la información sobre los cursos ofrecidos.\n   - **Operaciones**: Listar, obtener detalle, crear, actualizar y eliminar cursos.\n\n11. **ColegioAnterior**:\n\n   - **Descripción**: Permite registrar y gestionar los colegios anteriores de los estudiantes.\n   - **Operaciones**: Listar, obtener detalle, agregar, modificar y eliminar colegios.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?version",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "version",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?version",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:45:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"version\": \"1.0.0\",\n    \"nombreColegio\": \"escuela\",\n    \"mensaje\": \"API escrita en PHP\"\n}"
+						}
+					]
+				},
+				{
+					"name": "usuariosId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?usuarios&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "usuarios",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "usuariosId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?usuarios&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "usuarios",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:46:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "260"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"usuario\": {\n        \"id\": 1,\n        \"nombre\": \"Juan Pablo Perez\",\n        \"rut\": \"12345678-9\",\n        \"fechaNacimiento\": \"2008-02-15\",\n        \"domicilio\": \"Calle Alumnos\",\n        \"calle\": \"Calle A\",\n        \"numero\": \"15\",\n        \"idComuna\": 1,\n        \"email\": \"juanperezactualizado@gmail.com\",\n        \"telefono\": \"987654321\",\n        \"nivel\": 4\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "usuariosTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "usuarios",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "usuariosTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?usuarios",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "usuarios",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:48:27 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3801"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"usuarios\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Juan Pablo Perez\",\n            \"rut\": \"12345678-9\",\n            \"fechaNacimiento\": \"2008-02-15\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle A\",\n            \"numero\": \"15\",\n            \"idComuna\": 1,\n            \"email\": \"juanperezactualizado@gmail.com\",\n            \"telefono\": \"987654321\",\n            \"nivel\": 4\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Maria Rodriguez\",\n            \"rut\": \"12345679-8\",\n            \"fechaNacimiento\": \"2008-04-20\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle A\",\n            \"numero\": \"16\",\n            \"idComuna\": 1,\n            \"email\": \"mariarodriguez@gmail.com\",\n            \"telefono\": \"123456788\",\n            \"nivel\": 4\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Pedro Gomez\",\n            \"rut\": \"12345677-7\",\n            \"fechaNacimiento\": \"2008-06-10\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle B\",\n            \"numero\": \"17\",\n            \"idComuna\": 1,\n            \"email\": \"pedrogomez@gmail.com\",\n            \"telefono\": \"123456787\",\n            \"nivel\": 4\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Ana Soto\",\n            \"rut\": \"12345676-6\",\n            \"fechaNacimiento\": \"2008-08-05\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle B\",\n            \"numero\": \"18\",\n            \"idComuna\": 1,\n            \"email\": \"anasoto@gmail.com\",\n            \"telefono\": \"123456786\",\n            \"nivel\": 4\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Roberto Medina\",\n            \"rut\": \"12345675-5\",\n            \"fechaNacimiento\": \"2008-10-01\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle C\",\n            \"numero\": \"19\",\n            \"idComuna\": 1,\n            \"email\": \"robertomedina@gmail.com\",\n            \"telefono\": \"123456785\",\n            \"nivel\": 4\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Carla Perez\",\n            \"rut\": \"98765432-1\",\n            \"fechaNacimiento\": \"1980-02-15\",\n            \"domicilio\": \"Calle Padres\",\n            \"calle\": \"Calle D\",\n            \"numero\": \"20\",\n            \"idComuna\": 2,\n            \"email\": \"carlaperez@gmail.com\",\n            \"telefono\": \"987654321\",\n            \"nivel\": 3\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Miguel Angel Gonzalez\",\n            \"rut\": \"98765431-0\",\n            \"fechaNacimiento\": \"1981-04-20\",\n            \"domicilio\": \"Calle Padres\",\n            \"calle\": \"Calle D\",\n            \"numero\": \"21\",\n            \"idComuna\": 2,\n            \"email\": \"miguel.php@gmail.com\",\n            \"telefono\": \"922265898\",\n            \"nivel\": 3\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Lucia Gomez\",\n            \"rut\": \"98765430-2\",\n            \"fechaNacimiento\": \"1982-06-10\",\n            \"domicilio\": \"Calle Padres\",\n            \"calle\": \"Calle E\",\n            \"numero\": \"22\",\n            \"idComuna\": 2,\n            \"email\": \"luciagomez@gmail.com\",\n            \"telefono\": \"987654302\",\n            \"nivel\": 3\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Oscar Soto\",\n            \"rut\": \"98765429-3\",\n            \"fechaNacimiento\": \"1983-08-05\",\n            \"domicilio\": \"Calle Padres\",\n            \"calle\": \"Calle E\",\n            \"numero\": \"23\",\n            \"idComuna\": 2,\n            \"email\": \"oscarsoto@gmail.com\",\n            \"telefono\": \"987654293\",\n            \"nivel\": 3\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Lorena Medina\",\n            \"rut\": \"98765428-4\",\n            \"fechaNacimiento\": \"1984-10-01\",\n            \"domicilio\": \"Calle Padres\",\n            \"calle\": \"Calle F\",\n            \"numero\": \"24\",\n            \"idComuna\": 2,\n            \"email\": \"lorenamedina@gmail.com\",\n            \"telefono\": \"987654284\",\n            \"nivel\": 3\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Manuel Admin\",\n            \"rut\": \"87654321-5\",\n            \"fechaNacimiento\": \"1975-02-15\",\n            \"domicilio\": \"Calle Admin\",\n            \"calle\": \"Calle G\",\n            \"numero\": \"25\",\n            \"idComuna\": 3,\n            \"email\": \"manueladmin@gmail.com\",\n            \"telefono\": \"876543215\",\n            \"nivel\": 2\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Carmen Admin\",\n            \"rut\": \"87654320-6\",\n            \"fechaNacimiento\": \"1976-04-20\",\n            \"domicilio\": \"Calle Admin\",\n            \"calle\": \"Calle G\",\n            \"numero\": \"26\",\n            \"idComuna\": 3,\n            \"email\": \"carmenadmin@gmail.com\",\n            \"telefono\": \"876543206\",\n            \"nivel\": 2\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Joaquin Admin\",\n            \"rut\": \"87654319-7\",\n            \"fechaNacimiento\": \"1977-06-10\",\n            \"domicilio\": \"Calle Admin\",\n            \"calle\": \"Calle H\",\n            \"numero\": \"27\",\n            \"idComuna\": 3,\n            \"email\": \"joaquinadmin@gmail.com\",\n            \"telefono\": \"876543197\",\n            \"nivel\": 2\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Andres Tech\",\n            \"rut\": \"76543210-8\",\n            \"fechaNacimiento\": \"1972-02-15\",\n            \"domicilio\": \"Calle Tech\",\n            \"calle\": \"Calle I\",\n            \"numero\": \"28\",\n            \"idComuna\": 4,\n            \"email\": \"andrestech@gmail.com\",\n            \"telefono\": \"765432108\",\n            \"nivel\": 1\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Laura Tech\",\n            \"rut\": \"76543209-9\",\n            \"fechaNacimiento\": \"1973-04-20\",\n            \"domicilio\": \"Calle Tech\",\n            \"calle\": \"Calle I\",\n            \"numero\": \"29\",\n            \"idComuna\": 4,\n            \"email\": \"lauratech@gmail.com\",\n            \"telefono\": \"765432099\",\n            \"nivel\": 1\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Sin Nivel Zero\",\n            \"rut\": \"65432109-0\",\n            \"fechaNacimiento\": \"1965-02-15\",\n            \"domicilio\": \"Calle Zero\",\n            \"calle\": \"Calle J\",\n            \"numero\": \"30\",\n            \"idComuna\": 5,\n            \"email\": \"sinnivelzero@gmail.com\",\n            \"telefono\": \"654321090\",\n            \"nivel\": 0\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Juan Pablo Perez\",\n            \"rut\": \"16634685-1\",\n            \"fechaNacimiento\": \"2008-02-15\",\n            \"domicilio\": \"Calle Alumnos\",\n            \"calle\": \"Calle A\",\n            \"numero\": \"15\",\n            \"idComuna\": 1,\n            \"email\": \"juanperezactualizado@gmail.com\",\n            \"telefono\": \"987654321\",\n            \"nivel\": 4\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "regionesTodas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?regiones",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "regiones",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "regionesTodas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?regiones",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "regiones",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:49:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"regiones\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Región A\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Región B\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Región D\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Región E\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Región FX\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Región X\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "comunasTodas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?comunas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "comunas",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "comunasTodas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?comunas",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "comunas",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:50:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "635"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"comunas\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Comuna A1\",\n            \"idRegion\": 1\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Comuna A2\",\n            \"idRegion\": 1\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Comuna A3\",\n            \"idRegion\": 1\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Comuna B1\",\n            \"idRegion\": 2\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Comuna B2\",\n            \"idRegion\": 2\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Comuna C1\",\n            \"idRegion\": 3\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Comuna B3\",\n            \"idRegion\": 2\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Comuna C3\",\n            \"idRegion\": 3\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Comuna C4\",\n            \"idRegion\": 3\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Comuna E1\",\n            \"idRegion\": 5\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Comuna E2\",\n            \"idRegion\": 5\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Comuna E3\",\n            \"idRegion\": 5\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Comuna B3\",\n            \"idRegion\": 2\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Comuna F1\",\n            \"idRegion\": 7\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "comunasRegion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?comunasPorRegion&idRegion=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "comunasPorRegion",
+									"value": null
+								},
+								{
+									"key": "idRegion",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "comunasRegion",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?comunasPorRegion&idRegion=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "comunasPorRegion",
+											"value": null
+										},
+										{
+											"key": "idRegion",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:50:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "118"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"comunas\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Comuna A1\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Comuna A2\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Comuna A3\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "programaSocialTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?programasSociales",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "programasSociales",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "programaSocialTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?programasSociales",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "programasSociales",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:50:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"programas\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Programa A\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Programa B\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Programa Personal\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Programa X\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Programa Yota\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Programa Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "programaSocialid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?programasSociales&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "programasSociales",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "programaSocialid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?programasSociales&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "programasSociales",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:50:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"programa\": {\n        \"id\": 1,\n        \"nombre\": \"Programa A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "etniasId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?etnias&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "etnias",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "etniasId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?etnias&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "etnias",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:50:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"etnia\": {\n        \"id\": 1,\n        \"nombre\": \"Etnia A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "etniasTodas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?etnias",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "etnias",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "etniasTodas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?etnias",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "etnias",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"etnias\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Etnia A\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Etnia B\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Etnia Dd0\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Etnia Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "cursosId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?cursos&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "cursos",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cursosId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?cursos&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "cursos",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"curso\": {\n        \"id\": 1,\n        \"nombre\": \"Curso 1A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "cursosTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?cursos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "cursos",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cursosTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?cursos",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "cursos",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"cursos\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Curso 1A\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Curso 2B\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Curso 3Co\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Curso 8D\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "colegiosAnterioresId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?colegiosAnteriores&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "colegiosAnteriores",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "colegiosAnterioresId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?colegiosAnteriores&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "colegiosAnteriores",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"colegioAnterior\": {\n        \"id\": 1,\n        \"nombre\": \"Colegio Antiguo A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "colegiosAnterioresTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?colegiosAnteriores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "colegiosAnteriores",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "colegiosAnterioresTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?colegiosAnteriores",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "colegiosAnteriores",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"colegiosAnteriores\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Colegio Antiguo A\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Colegio Antiguo Z\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Colegio Modificado B\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Colegio Modificado C\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "alumnosId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?alumnos&idUsuario=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "alumnos",
+									"value": null
+								},
+								{
+									"key": "idUsuario",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alumnosId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?alumnos&idUsuario=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "alumnos",
+											"value": null
+										},
+										{
+											"key": "idUsuario",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:51:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"alumno\": {\n        \"idUsuario\": 1,\n        \"sexo\": \"Masculino\",\n        \"viveCon\": \"Ambos\",\n        \"viveConEspecificar\": null,\n        \"idProgramaSocial\": 1,\n        \"idEtnia\": 1,\n        \"repetidoCurso\": \"No\",\n        \"idColegioAnterior\": 1,\n        \"necesitaTransporte\": \"Si\",\n        \"sectorTransporte\": \"Norte\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AlumnosTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?alumnos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "alumnos",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AlumnosTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?alumnos",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "alumnos",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1328"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"alumnos\": [\n        {\n            \"idUsuario\": 1,\n            \"sexo\": \"Masculino\",\n            \"viveCon\": \"Ambos\",\n            \"viveConEspecificar\": null,\n            \"idProgramaSocial\": 1,\n            \"idEtnia\": 1,\n            \"repetidoCurso\": \"No\",\n            \"idColegioAnterior\": 1,\n            \"necesitaTransporte\": \"Si\",\n            \"sectorTransporte\": \"Norte\"\n        },\n        {\n            \"idUsuario\": 2,\n            \"sexo\": \"Masculino\",\n            \"viveCon\": \"Padre\",\n            \"viveConEspecificar\": \"Padre y Madre\",\n            \"idProgramaSocial\": 2,\n            \"idEtnia\": 2,\n            \"repetidoCurso\": \"Si: 3er grado\",\n            \"idColegioAnterior\": 2,\n            \"necesitaTransporte\": \"No\",\n            \"sectorTransporte\": \"Sanfurgo\"\n        },\n        {\n            \"idUsuario\": 3,\n            \"sexo\": \"Masculino\",\n            \"viveCon\": \"Otros\",\n            \"viveConEspecificar\": \"Tía y abuelo\",\n            \"idProgramaSocial\": 1,\n            \"idEtnia\": 2,\n            \"repetidoCurso\": \"No\",\n            \"idColegioAnterior\": 3,\n            \"necesitaTransporte\": \"Si\",\n            \"sectorTransporte\": \"Sur\"\n        },\n        {\n            \"idUsuario\": 4,\n            \"sexo\": \"Femenino\",\n            \"viveCon\": \"Padre\",\n            \"viveConEspecificar\": null,\n            \"idProgramaSocial\": 3,\n            \"idEtnia\": 1,\n            \"repetidoCurso\": \"Si: 2do grado\",\n            \"idColegioAnterior\": 1,\n            \"necesitaTransporte\": \"No\",\n            \"sectorTransporte\": null\n        },\n        {\n            \"idUsuario\": 5,\n            \"sexo\": \"Masculino\",\n            \"viveCon\": \"Ambos\",\n            \"viveConEspecificar\": null,\n            \"idProgramaSocial\": 1,\n            \"idEtnia\": 2,\n            \"repetidoCurso\": \"No\",\n            \"idColegioAnterior\": 3,\n            \"necesitaTransporte\": \"Si\",\n            \"sectorTransporte\": \"Oeste\"\n        },\n        {\n            \"idUsuario\": 20,\n            \"sexo\": \"Masculino\",\n            \"viveCon\": \"\",\n            \"viveConEspecificar\": \"Padre y Madre\",\n            \"idProgramaSocial\": 5,\n            \"idEtnia\": 2,\n            \"repetidoCurso\": \"No\",\n            \"idColegioAnterior\": 3,\n            \"necesitaTransporte\": \"Si\",\n            \"sectorTransporte\": \"Norte\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "matriculasId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?matriculas&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "matriculas",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "matriculasId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?matriculas&id=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "matriculas",
+											"value": null
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"matricula\": {\n        \"id\": 1,\n        \"idAlumno\": 1,\n        \"idFuncionario\": 1,\n        \"idCurso\": 1,\n        \"fechaMatricula\": \"2023-08-01\",\n        \"fechaRetiro\": \"2023-08-07\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "matriculasTodas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?matriculas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "matriculas",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "matriculasTodas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?matriculas",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "matriculas",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "678"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"matriculas\": [\n        {\n            \"id\": 1,\n            \"idAlumno\": 1,\n            \"idFuncionario\": 1,\n            \"idCurso\": 1,\n            \"fechaMatricula\": \"2023-08-01\",\n            \"fechaRetiro\": \"2023-08-07\"\n        },\n        {\n            \"id\": 2,\n            \"idAlumno\": 2,\n            \"idFuncionario\": 2,\n            \"idCurso\": 2,\n            \"fechaMatricula\": \"2023-08-02\",\n            \"fechaRetiro\": \"2023-08-07\"\n        },\n        {\n            \"id\": 3,\n            \"idAlumno\": 3,\n            \"idFuncionario\": 3,\n            \"idCurso\": 3,\n            \"fechaMatricula\": \"2023-08-03\",\n            \"fechaRetiro\": \"2023-07-01\"\n        },\n        {\n            \"id\": 4,\n            \"idAlumno\": 4,\n            \"idFuncionario\": 4,\n            \"idCurso\": 1,\n            \"fechaMatricula\": \"2023-08-04\",\n            \"fechaRetiro\": null\n        },\n        {\n            \"id\": 5,\n            \"idAlumno\": 5,\n            \"idFuncionario\": 5,\n            \"idCurso\": 1,\n            \"fechaMatricula\": \"2023-08-05\",\n            \"fechaRetiro\": \"2023-06-15\"\n        },\n        {\n            \"id\": 7,\n            \"idAlumno\": 20,\n            \"idFuncionario\": 1,\n            \"idCurso\": 2,\n            \"fechaMatricula\": \"2023-08-10\",\n            \"fechaRetiro\": \"2023-09-10\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "saludId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?salud&idAlumno=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "salud",
+									"value": null
+								},
+								{
+									"key": "idAlumno",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "saludId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?salud&idAlumno=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "salud",
+											"value": null
+										},
+										{
+											"key": "idAlumno",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"registroSalud\": {\n        \"idAlumno\": 1,\n        \"tratamientoMedico\": \"Tratamiento G\",\n        \"programaEscolar\": \"Programa 1\",\n        \"contraindicacionMedica\": \"No\",\n        \"alergiaMedicamento\": \"Alergia medicamento G\",\n        \"alergiaAlimento\": \"Alergia alimento A\",\n        \"antecedentesTrastornos\": \"Antecedente A\",\n        \"previsionSocial\": \"FONASA\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "documentosApoderadoTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?documentosApoderado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "documentosApoderado",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "documentosApoderadoTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?documentosApoderado",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "documentosApoderado",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "986"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"documentos\": [\n        {\n            \"idAlumno\": 1,\n            \"certificadoEstudios\": \"Si\",\n            \"informePersonalidad\": \"No\",\n            \"informeNotas\": \"Si\",\n            \"fotocopiaHojaVida\": \"No\",\n            \"boletaAporte\": \"Si\",\n            \"certificadoMedico\": \"No\"\n        },\n        {\n            \"idAlumno\": 2,\n            \"certificadoEstudios\": \"No\",\n            \"informePersonalidad\": \"Si\",\n            \"informeNotas\": \"Si\",\n            \"fotocopiaHojaVida\": \"No\",\n            \"boletaAporte\": \"Si\",\n            \"certificadoMedico\": \"No\"\n        },\n        {\n            \"idAlumno\": 3,\n            \"certificadoEstudios\": \"No\",\n            \"informePersonalidad\": \"No\",\n            \"informeNotas\": \"Si\",\n            \"fotocopiaHojaVida\": \"Si\",\n            \"boletaAporte\": \"No\",\n            \"certificadoMedico\": \"Si\"\n        },\n        {\n            \"idAlumno\": 4,\n            \"certificadoEstudios\": \"No\",\n            \"informePersonalidad\": \"Si\",\n            \"informeNotas\": \"Si\",\n            \"fotocopiaHojaVida\": \"No\",\n            \"boletaAporte\": \"Si\",\n            \"certificadoMedico\": \"No\"\n        },\n        {\n            \"idAlumno\": 5,\n            \"certificadoEstudios\": \"No\",\n            \"informePersonalidad\": \"Si\",\n            \"informeNotas\": \"No\",\n            \"fotocopiaHojaVida\": \"Si\",\n            \"boletaAporte\": \"No\",\n            \"certificadoMedico\": \"Si\"\n        },\n        {\n            \"idAlumno\": 20,\n            \"certificadoEstudios\": \"No\",\n            \"informePersonalidad\": \"Si\",\n            \"informeNotas\": \"Si\",\n            \"fotocopiaHojaVida\": \"No\",\n            \"boletaAporte\": \"Si\",\n            \"certificadoMedico\": \"No\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "documentosCompartidosTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?documentosCompartidos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "documentosCompartidos",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "documentosCompartidosTodos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?documentosCompartidos",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "documentosCompartidos",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "596"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"documentos\": [\n        {\n            \"idAlumno\": 1,\n            \"reglamentoInterno\": \"Si\",\n            \"textoEscolarGratis\": \"Si\",\n            \"reglamentoEvaluacion\": \"No\"\n        },\n        {\n            \"idAlumno\": 2,\n            \"reglamentoInterno\": \"No\",\n            \"textoEscolarGratis\": \"Si\",\n            \"reglamentoEvaluacion\": \"No\"\n        },\n        {\n            \"idAlumno\": 3,\n            \"reglamentoInterno\": \"No\",\n            \"textoEscolarGratis\": \"Si\",\n            \"reglamentoEvaluacion\": \"No\"\n        },\n        {\n            \"idAlumno\": 4,\n            \"reglamentoInterno\": \"No\",\n            \"textoEscolarGratis\": \"Si\",\n            \"reglamentoEvaluacion\": \"No\"\n        },\n        {\n            \"idAlumno\": 5,\n            \"reglamentoInterno\": \"No\",\n            \"textoEscolarGratis\": \"No\",\n            \"reglamentoEvaluacion\": \"Si\"\n        },\n        {\n            \"idAlumno\": 20,\n            \"reglamentoInterno\": \"Si\",\n            \"textoEscolarGratis\": \"No\",\n            \"reglamentoEvaluacion\": \"Si\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "rolesUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?rolesUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "rolesUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "rolesUsuario",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?rolesUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "rolesUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:52:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"roles\": [\n        {\n            \"id\": 2,\n            \"nombre\": \"none\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Tecnico\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Admin\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Apoderado\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Rol X\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "### **Solicitudes GET en la API de Gestión Escolar**\n\n**Descripción General**:\n\nLas solicitudes GET en la API de Gestión Escolar están diseñadas para recuperar información de la base de datos sin modificar ningún dato. Estas solicitudes son idempotentes, lo que significa que hacer la misma solicitud una o más veces consecutivamente tiene el mismo efecto que hacerla solo una vez, y no produce cambios en el servidor.\n\n**Uso**:\n\n1. **Recuperar Listados**: Utiliza las solicitudes GET para obtener listados completos de entidades como alumnos, cursos, programas sociales, entre otros. Estas solicitudes devuelven un array con los objetos solicitados.\n\n   - **Ejemplo**: `GET /alumnos` puede devolver una lista de todos los alumnos registrados en la base de datos.\n\n2. **Obtener Detalles**: Si deseas obtener información detallada de una entidad específica, puedes usar el identificador único de esa entidad en la solicitud GET.\n\n   - **Ejemplo**: `GET /alumnos/123` recuperará detalles del alumno con el ID 123.\n\n3. **Filtrar Información**: Las solicitudes GET también pueden incluir parámetros de consulta para filtrar los resultados devueltos por el servidor.\n\n   - **Ejemplo**: `GET /alumnos?curso=2B` podría devolver una lista de alumnos que están inscritos en el curso \"2B\".\n\n**Formato de Respuesta**:\n\nLas respuestas a las solicitudes GET generalmente se devuelven en formato JSON. Sin embargo, esto puede variar según la configuración de la API.\n\n**Autorización**:\n\nAunque las solicitudes GET son operaciones de solo lectura, algunas de ellas pueden requerir autenticación para proteger la información sensible. Asegúrate de proporcionar cualquier encabezado o token de autorización necesario al hacer tu solicitud.\n\n**Consideraciones**:\n\n- Asegúrate de no incluir información confidencial en la URL de tu solicitud GET, ya que las URLs pueden quedar registradas en logs o ser vistas por terceros.\n- Ten en cuenta los límites de paginación. Si estás recuperando grandes cantidades de datos, la API puede limitar la cantidad de entradas devueltas en una sola solicitud y requerir paginación."
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "agregarRegion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Región F\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarRegion",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarRegion",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarRegion",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Región F\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarRegion",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarRegion",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:56:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Región añadida con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarComuna",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Comuna F1\",\r\n  \"idRegion\": 7\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarComuna",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarComuna",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarComuna",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Comuna F1\",\r\n  \"idRegion\": 7\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarComuna",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarComuna",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:56:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Comuna añadida con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarProgramaSocial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Programa Personalmente\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarProgramaSocial",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarProgramaSocial",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarProgramaSocial",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Programa Personalmente\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarProgramaSocial",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarProgramaSocial",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:56:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Programa añadido con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarEtnia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Etnia D\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarEtnia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarEtnia",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarEtnia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Etnia D\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarEtnia",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarEtnia",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:56:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Etnia añadida con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarCurso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Curso 3C\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarCurso",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarCurso",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarCurso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Curso 3C\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarCurso",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarCurso",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:57:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Curso añadido con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarColegioAnterior",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Colegio C\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarColegioAnterior",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarColegioAnterior",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarColegioAnterior",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Colegio C\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarColegioAnterior",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarColegioAnterior",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:57:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Colegio añadido con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Juan Pablo Perez\",\r\n    \"rut\": \"16634683-1\",\r\n    \"fechaNacimiento\": \"2008-02-15\",\r\n    \"domicilio\": \"Calle Alumnos\",\r\n    \"calle\": \"Calle A\",\r\n    \"numero\": \"15\",\r\n    \"idComuna\": 1,\r\n    \"email\": \"juanperezactualizado@gmail.com\",\r\n    \"telefono\": \"987654321\",\r\n    \"nivel\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarUsuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan Pablo Perez\",\r\n    \"rut\": \"16634683-1\",\r\n    \"fechaNacimiento\": \"2008-02-15\",\r\n    \"domicilio\": \"Calle Alumnos\",\r\n    \"calle\": \"Calle A\",\r\n    \"numero\": \"15\",\r\n    \"idComuna\": 1,\r\n    \"email\": \"juanperezactualizado@gmail.com\",\r\n    \"telefono\": \"987654321\",\r\n    \"nivel\": 4\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:57:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Usuario añadido con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarAlumno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\": 23,\r\n    \"sexo\": \"Masculino\",\r\n    \"viveCon\": \"Padres\",\r\n    \"viveConEspecificar\": \"Padre y Madre\",\r\n    \"idProgramaSocial\": 5,\r\n    \"idEtnia\": 2,\r\n    \"repetidoCurso\": \"No\",\r\n    \"idColegioAnterior\": 3,\r\n    \"necesitaTransporte\": \"Si\",\r\n    \"sectorTransporte\": \"Norte\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarAlumno",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarAlumno",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarAlumno",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 23,\r\n    \"sexo\": \"Masculino\",\r\n    \"viveCon\": \"Padres\",\r\n    \"viveConEspecificar\": \"Padre y Madre\",\r\n    \"idProgramaSocial\": 5,\r\n    \"idEtnia\": 2,\r\n    \"repetidoCurso\": \"No\",\r\n    \"idColegioAnterior\": 3,\r\n    \"necesitaTransporte\": \"Si\",\r\n    \"sectorTransporte\": \"Norte\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarAlumno",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarAlumno",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:58:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Alumno añadido con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarMatricula",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"idFuncionario\": 1,\r\n  \"idCurso\": 2,\r\n  \"fechaMatricula\": \"2023-08-10\",\r\n  \"fechaRetiro\": \"2023-09-10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarMatricula",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarMatricula",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarMatricula",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"idFuncionario\": 1,\r\n  \"idCurso\": 2,\r\n  \"fechaMatricula\": \"2023-08-10\",\r\n  \"fechaRetiro\": \"2023-09-10\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarMatricula",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarMatricula",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:58:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Matrícula añadida con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarSalud",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"tratamientoMedico\": \"Tratamiento F\",\r\n  \"programaEscolar\": \"Programa 6\",\r\n  \"contraindicacionMedica\": \"No\",\r\n  \"alergiaMedicamento\": \"Alergia medicamento F\",\r\n  \"alergiaAlimento\": \"Alergia alimento F\",\r\n  \"antecedentesTrastornos\": \"Antecedente F\",\r\n  \"previsionSocial\": \"FONASA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarSalud",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarSalud",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarSalud",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"tratamientoMedico\": \"Tratamiento F\",\r\n  \"programaEscolar\": \"Programa 6\",\r\n  \"contraindicacionMedica\": \"No\",\r\n  \"alergiaMedicamento\": \"Alergia medicamento F\",\r\n  \"alergiaAlimento\": \"Alergia alimento F\",\r\n  \"antecedentesTrastornos\": \"Antecedente F\",\r\n  \"previsionSocial\": \"FONASA\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarSalud",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarSalud",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:58:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Datos de salud añadidos con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarDocumentoApoderado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"certificadoEstudios\": \"No\",\r\n  \"informePersonalidad\": \"Si\",\r\n  \"informeNotas\": \"Si\",\r\n  \"fotocopiaHojaVida\": \"No\",\r\n  \"boletaAporte\": \"Si\",\r\n  \"certificadoMedico\": \"No\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarDocumentoApoderado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarDocumentoApoderado",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarDocumentoApoderado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"certificadoEstudios\": \"No\",\r\n  \"informePersonalidad\": \"Si\",\r\n  \"informeNotas\": \"Si\",\r\n  \"fotocopiaHojaVida\": \"No\",\r\n  \"boletaAporte\": \"Si\",\r\n  \"certificadoMedico\": \"No\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarDocumentoApoderado",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarDocumentoApoderado",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:59:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos añadidos con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarDocumentoCompartido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"reglamentoInterno\": \"Si\",\r\n  \"textoEscolarGratis\": \"No\",\r\n  \"reglamentoEvaluacion\": \"Si\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarDocumentoCompartido",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarDocumentoCompartido",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarDocumentoCompartido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23,\r\n  \"reglamentoInterno\": \"Si\",\r\n  \"textoEscolarGratis\": \"No\",\r\n  \"reglamentoEvaluacion\": \"Si\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarDocumentoCompartido",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarDocumentoCompartido",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:59:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos añadidos con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "agregarRolUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Rol Xx\",\r\n  \"nivel\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarRolUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "agregarRolUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agregarRolUsuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Rol Xx\",\r\n  \"nivel\": 4\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?agregarRolUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "agregarRolUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:59:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Rol añadido con éxito\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### **Solicitudes POST en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes POST en el Sistema de Matrículas están destinadas a la creación de nuevos registros o recursos. Estas solicitudes transmiten datos al servidor para que sean procesados y almacenados. En el contexto del sistema de matrículas, esto se traduce en la inscripción de nuevos estudiantes, registro de nuevos cursos, entre otros.\n\n**Uso**:\n\n1. **Matriculación de Estudiantes**: A través de una solicitud POST, puedes registrar a un nuevo estudiante en un curso específico, proporcionando todos los detalles relevantes.\n\n   - **Ejemplo**: `POST /matriculas` con un cuerpo que incluye detalles del estudiante, curso seleccionado y fecha de matriculación.\n\n2. **Registro de Nuevos Cursos**: Si se introduce un nuevo curso o programa, se puede registrar en el sistema mediante una solicitud POST.\n\n   - **Ejemplo**: `POST /cursos` con un cuerpo que detalla el nombre del curso, descripción, duración, etc.\n\n3. **Otros Registros Relacionados**: Otros aspectos del proceso de matriculación, como la inclusión de programas de asistencia, detalles de pago o documentos requeridos, también pueden ser manejados mediante solicitudes POST.\n\n**Formato de Entrada**:\n\nLas solicitudes POST generalmente requieren un cuerpo en el formato JSON que contenga todos los detalles necesarios para el recurso que se está creando. Los detalles exactos variarán según el recurso específico que se esté registrando.\n\n**Respuestas y Confirmaciones**:\n\nDespués de enviar una solicitud POST, el servidor generalmente devuelve una respuesta que indica el éxito o fallo de la operación. Para operaciones exitosas, es común que la respuesta incluya un identificador único del recurso creado y, a veces, un resumen de los datos ingresados.\n\n**Autorización**:\n\nDado que las solicitudes POST pueden agregar nuevos datos al sistema, es esencial que estén protegidas adecuadamente. A menudo, estas solicitudes requerirán autenticación y autorización, asegurándose de que solo los usuarios con los permisos adecuados puedan realizarlas.\n\n**Consideraciones**:\n\n- Es vital validar los datos enviados en una solicitud POST para asegurar la integridad y la seguridad de la información en el sistema.\n- Ten en cuenta las restricciones o reglas del negocio. Por ejemplo, no permitir la matriculación de un estudiante en dos cursos simultáneos si eso va en contra de las reglas de la institución."
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "actualizarRegion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Región FX\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarRegion",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarRegion",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarRegion",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Región FX\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarRegion",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarRegion",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 08:59:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Región actualizada con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarComuna",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Comuna B3\",\r\n  \"idRegion\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarComuna",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarComuna",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarComuna",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Comuna B3\",\r\n  \"idRegion\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarComuna",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarComuna",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Comuna actualizada con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarProgramaSocial",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 6,\r\n  \"nombre\": \"Programa Yota\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarProgramaSocial",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarProgramaSocial",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarProgramaSocial",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nombre\": \"Programa Yota\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarProgramaSocial",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarProgramaSocial",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Programa Social actualizado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarEtnia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 5,\r\n  \"nombre\": \"Etnia Dd0\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarEtnia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarEtnia",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarEtnia",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 5,\r\n  \"nombre\": \"Etnia Dd0\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarEtnia",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarEtnia",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Etnia actualizada con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarCurso",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 5,\r\n  \"nombre\": \"Curso 3Co\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarCurso",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarCurso",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarCurso",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 5,\r\n  \"nombre\": \"Curso 3Co\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarCurso",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarCurso",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Curso actualizado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarColegioAnterior",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 6,\r\n  \"nombre\": \"Colegio Modificado C\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarColegioAnterior",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarColegioAnterior",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarColegioAnterior",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nombre\": \"Colegio Modificado C\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarColegioAnterior",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarColegioAnterior",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Colegio anterior actualizado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Miguel Angel Gonzalez\",\r\n  \"email\": \"miguel.php@gmail.com\",\r\n  \"telefono\": \"922265898\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarUsuario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"nombre\": \"Miguel Angel Gonzalez\",\r\n  \"email\": \"miguel.php@gmail.com\",\r\n  \"telefono\": \"922265898\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:00:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Datos de usuario actualizados con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarAlumno",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 2,\r\n  \"sexo\": \"Masculino\",\r\n  \"viveConEspecificar\": \"Padre y Madre\",\r\n  \"sectorTransporte\": \"Sanfurgo\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarAlumno",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarAlumno",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarAlumno",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 2,\r\n  \"sexo\": \"Masculino\",\r\n  \"viveConEspecificar\": \"Padre y Madre\",\r\n  \"sectorTransporte\": \"Sanfurgo\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarAlumno",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarAlumno",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:01:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Alumno actualizado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarMatricula",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"fechaRetiro\": \"2023-08-07\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarMatricula",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarMatricula",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarMatricula",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1,\r\n  \"fechaRetiro\": \"2023-08-07\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarMatricula",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarMatricula",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:01:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Matrícula actualizada con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarSalud",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 3,\r\n  \"tratamientoMedico\": \"Tratamiento H\",\r\n  \"programaEscolar\": \"Programa 7\",\r\n  \"antecedentesTrastornos\": \"Antecedente G\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarSalud",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarSalud",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarSalud",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 3,\r\n  \"tratamientoMedico\": \"Tratamiento H\",\r\n  \"programaEscolar\": \"Programa 7\",\r\n  \"antecedentesTrastornos\": \"Antecedente G\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarSalud",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarSalud",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:01:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Datos de salud actualizados con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarDocumentosApoderado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 2,\r\n  \"certificadoEstudios\": \"No\",\r\n  \"informePersonalidad\": \"Si\",\r\n  \"informeNotas\": \"Si\",\r\n  \"fotocopiaHojaVida\": \"No\",\r\n  \"boletaAporte\": \"Si\",\r\n  \"certificadoMedico\": \"No\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarDocumentoApoderado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarDocumentoApoderado",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarDocumentosApoderado",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 2,\r\n  \"certificadoEstudios\": \"No\",\r\n  \"informePersonalidad\": \"Si\",\r\n  \"informeNotas\": \"Si\",\r\n  \"fotocopiaHojaVida\": \"No\",\r\n  \"boletaAporte\": \"Si\",\r\n  \"certificadoMedico\": \"No\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarDocumentoApoderado",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarDocumentoApoderado",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:01:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos del apoderado actualizados con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarDocumentosCompartido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 2,\r\n  \"reglamentoInterno\": \"No\",\r\n  \"textoEscolarGratis\": \"Si\",\r\n  \"reglamentoEvaluacion\": \"No\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarDocumentoCompartido",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarDocumentoCompartido",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarDocumentosCompartido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 2,\r\n  \"reglamentoInterno\": \"No\",\r\n  \"textoEscolarGratis\": \"Si\",\r\n  \"reglamentoEvaluacion\": \"No\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarDocumentoCompartido",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarDocumentoCompartido",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:01:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos compartidos actualizados con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarRolUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 4,\r\n  \"nombre\": \"Admin\",\r\n  \"nivel\": 5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarRolUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "actualizarRolUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarRolUsuario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 4,\r\n  \"nombre\": \"Admin\",\r\n  \"nivel\": 5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?actualizarRolUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "actualizarRolUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:02:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Rol de usuario actualizado con éxito\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### **Solicitudes PUT en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes PUT en el Sistema de Matrículas se utilizan para actualizar los detalles de registros existentes. A diferencia de `POST`, que se centra en la creación de nuevos recursos, `PUT` se encarga de modificar recursos ya existentes utilizando la información proporcionada.\n\n**Uso**:\n\n1. **Actualización de Detalles de Estudiantes**: Si un estudiante cambia de dirección, teléfono, o cualquier otro dato personal, puedes utilizar una solicitud PUT para actualizar esa información.\n\n   - **Ejemplo**: `PUT /estudiantes/{idEstudiante}` con un cuerpo que incluye los nuevos detalles del estudiante.\n\n2. **Modificación de Cursos**: Si un curso necesita ser actualizado en términos de contenido, horario o cualquier otro detalle, una solicitud PUT es la indicada.\n\n   - **Ejemplo**: `PUT /cursos/{idCurso}` con un cuerpo que detalla los cambios del curso.\n\n3. **Cambios en Matriculación**: Si hay cambios en la matriculación de un estudiante, como traslados a otro curso o modificaciones en la fecha, se pueden realizar mediante una solicitud PUT.\n\n**Formato de Entrada**:\n\nLas solicitudes PUT, al igual que las POST, requieren un cuerpo, generalmente en formato JSON, que contenga los detalles que se desean actualizar. Es importante asegurarse de que los datos proporcionados estén completos y sean correctos para evitar inconsistencias.\n\n**Respuestas y Confirmaciones**:\n\nTras enviar una solicitud PUT, el servidor suele devolver una respuesta que indica si la actualización fue exitosa o no. En caso de éxito, puede devolver el recurso actualizado o simplemente un código de estado que indique que la operación se realizó correctamente."
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "eliminarRegion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarRegion",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarRegion",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarComuna",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarComuna",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarComuna",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarProgramaSocial",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarProgramaSocial",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarProgramaSocial",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarEtnia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarEtnia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarEtnia",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarCurso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarCurso",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarCurso",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarColegioAnterior",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarColegioAnterior",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarColegioAnterior",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarAlumno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarAlumno",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarAlumno",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarMatricula",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarMatricula",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarSalud",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarMatricula",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarDocumentoApoderado",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarDocumentoApoderado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarDocumentoApoderado",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarDocumentoCompartido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarDocumentoCompartido",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarDocumentoCompartido",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarRolUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarRolUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarRolUsuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
