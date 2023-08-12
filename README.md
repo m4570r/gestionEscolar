@@ -1,33 +1,64 @@
-## Sistema de Matrículas - API en PHP
+# GestionEscolar API REST
 
-### Descripción
-El Sistema de Matrículas es una aplicación web construida para administrar, controlar y gestionar el proceso de matriculación de alumnos en una escuela. La aplicación proporciona funcionalidades para registrar, editar, listar y eliminar información de alumnos, cursos, colegios anteriores, documentos, salud, roles de usuarios, regiones, comunas, entre otros.
+GestionEscolar es una API REST diseñada específicamente para instituciones educativas, facilitando la gestión de estudiantes, matriculaciones, registros de salud y más. Está construida con PHP puro y MySQL para la base de datos. Aunque no cuenta con una interfaz gráfica de usuario, proporciona una estructura robusta y técnica para ser consumida directamente por una aplicación.
 
-### Características principales:
-1. **Gestión de Alumnos**: Registro completo del alumno, incluyendo detalles personales, documentos compartidos, salud, etnias, y más.
-2. **Manejo de Cursos**: Capacidad para listar, agregar, editar y eliminar cursos disponibles en el colegio.
-3. **Administración de Matriculaciones**: Funcionalidad para matricular alumnos, registrar la fecha de matriculación y, si es necesario, la fecha de retiro.
-4. **Información Geográfica**: Registro y gestión de regiones y comunas para asignación a alumnos.
-5. **Roles y Accesos**: Diferentes roles de usuario con niveles de acceso determinados.
-6. **Integridad de Datos**: Implementación de restricciones y relaciones entre tablas para garantizar la integridad y consistencia de los datos.
+> **Nota:** Esta API es para uso técnico y directo de la aplicación. No está diseñada para ser accedida directamente por apoderados o alumnos. Solo personal técnico y desarrolladores deberían interactuar con ella.
 
-### Tecnologías Utilizadas:
-- Lenguaje: PHP
-- Base de Datos: MySQL
-- Framework: (Si aplica, añadir el nombre del framework que se utilizó)
+## Tabla de Contenido
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Configuración](#configuración)
+- [Ejecución](#ejecución)
+- [Documentación](#documentación)
+- [Colaborar](#colaborar)
+- [Licencia](#licencia)
 
-### Instalación y Uso:
-(Si es relevante, proporciona una breve guía de cómo clonar, instalar y ejecutar la aplicación en un ambiente local).
+## Requisitos
 
-1. Clona el repositorio: `git clone URL_DEL_REPO`
-2. Instala las dependencias: `comando_para_instalar`
-3. Configura la base de datos en `ruta/del/archivo/config`
-4. Ejecuta el servidor: `comando_para_ejecutar`
-5. Abre tu navegador y visita `http://localhost:PUERTO`
+- PHP (versión recomendada 7.4+)
+- MySQL (version 5.7+ recomendada)
+- Servidor Apache
 
-### Contribuciones:
-Las contribuciones son bienvenidas. Si tienes alguna mejora o corrección, siente libre de hacer un fork y enviar un pull request.
+## Instalación
 
-### Contacto:
-Para cualquier comentario, pregunta o sugerencia, por favor, abre un issue en este repositorio o contáctame directamente en `mgonzalez.gnu@gmail.com`.
+1. **Clonar el repositorio**
+   
+   ```bash
+   git clone https://github.com/m4570r/gestionEscolar.git
+   cd gestionEscolar
+   ```
 
+2. **Configurar la base de datos**
+
+   - Importar el esquema de la base de datos desde la ubicación proporcionada en el repositorio.
+
+## Configuración
+
+1. **Archivo de configuración**
+
+   Modificar el archivo `conexion.php` que se encuentra en la raíz del sitio. Ajusta los siguientes parámetros:
+   - `host`
+   - `nombre de la base de datos`
+   - `usuario`
+   - `contraseña`
+
+## Ejecución
+
+1. **Iniciar un servidor Apache**
+
+   Coloca el contenido del repositorio clonado dentro del directorio `htdocs` de tu servidor Apache. Asegúrate de que el servidor esté corriendo para acceder a la API.
+
+## Documentación
+
+Para probar la API, puedes utilizar herramientas como [Postman](https://www.postman.com/) o acceder directamente a la interfaz de Swagger que se encuentra en el subdirectorio `/documentacion` después de que la API esté en ejecución.
+
+## Colaborar
+
+Si deseas colaborar en este proyecto, por favor lee las directrices que se encuentran en [CONTRIBUTING.md](#).
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE.md](#) para más detalles.
+
+### Contacto
+Ante cualquier duda, por favor contacta a [mgonzalez.gnu@gmail.com](mailto:mgonzalez.gnu@gmail.com).
