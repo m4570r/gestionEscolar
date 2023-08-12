@@ -35,7 +35,8 @@
 									"value": null
 								}
 							]
-						}
+						},
+						"description": "**Endpoint URL**: \nhttp://127.0.0.1/api/v1/2023/index.php?version\n\n**Método**: GET\n\n**Descripción**: Este endpoint proporciona información meta sobre la API, incluyendo la versión actual de la API, el nombre del colegio y un mensaje personalizado. Es útil para verificar rápidamente la funcionalidad básica del servicio y para identificar detalles sobre la versión actual de la API.\n\n**Parámetros**:\n- No acepta parámetros en el cuerpo del request.\n\n**Respuesta exitosa**:\n- **Código HTTP**: 200 OK\n- **Contenido**: \n  ```json\n  {\n    \"version\": \"1.0.0\",\n    \"nombreColegio\": \"escuela\",\n    \"mensaje\": \"API escrita en PHP\"\n  }\n  ```\n\n**Respuestas fallidas**:\n- **Código HTTP**: 500 Internal Server Error\n- **Contenido**: \n  ```json\n  {\n    \"success\": false,\n    \"message\": \"Error al obtener la versión o el nombre del colegio\"\n  }\n  ```\n\n**Uso típico**: Este endpoint es ideal para realizar chequeos iniciales sobre la API, como, por ejemplo, verificar que el servicio está corriendo, identificar la versión de la API que se está utilizando o para obtener el nombre del colegio asociado."
 					},
 					"response": [
 						{
@@ -2172,7 +2173,30 @@
 					]
 				}
 			],
-			"description": "### **Solicitudes GET en la API de Gestión Escolar**\n\n**Descripción General**:\n\nLas solicitudes GET en la API de Gestión Escolar están diseñadas para recuperar información de la base de datos sin modificar ningún dato. Estas solicitudes son idempotentes, lo que significa que hacer la misma solicitud una o más veces consecutivamente tiene el mismo efecto que hacerla solo una vez, y no produce cambios en el servidor.\n\n**Uso**:\n\n1. **Recuperar Listados**: Utiliza las solicitudes GET para obtener listados completos de entidades como alumnos, cursos, programas sociales, entre otros. Estas solicitudes devuelven un array con los objetos solicitados.\n\n   - **Ejemplo**: `GET /alumnos` puede devolver una lista de todos los alumnos registrados en la base de datos.\n\n2. **Obtener Detalles**: Si deseas obtener información detallada de una entidad específica, puedes usar el identificador único de esa entidad en la solicitud GET.\n\n   - **Ejemplo**: `GET /alumnos/123` recuperará detalles del alumno con el ID 123.\n\n3. **Filtrar Información**: Las solicitudes GET también pueden incluir parámetros de consulta para filtrar los resultados devueltos por el servidor.\n\n   - **Ejemplo**: `GET /alumnos?curso=2B` podría devolver una lista de alumnos que están inscritos en el curso \"2B\".\n\n**Formato de Respuesta**:\n\nLas respuestas a las solicitudes GET generalmente se devuelven en formato JSON. Sin embargo, esto puede variar según la configuración de la API.\n\n**Autorización**:\n\nAunque las solicitudes GET son operaciones de solo lectura, algunas de ellas pueden requerir autenticación para proteger la información sensible. Asegúrate de proporcionar cualquier encabezado o token de autorización necesario al hacer tu solicitud.\n\n**Consideraciones**:\n\n- Asegúrate de no incluir información confidencial en la URL de tu solicitud GET, ya que las URLs pueden quedar registradas en logs o ser vistas por terceros.\n- Ten en cuenta los límites de paginación. Si estás recuperando grandes cantidades de datos, la API puede limitar la cantidad de entradas devueltas en una sola solicitud y requerir paginación."
+			"description": "### **Solicitudes GET en la API de Gestión Escolar**\n\n**Descripción General**:\n\nLas solicitudes GET en la API de Gestión Escolar están diseñadas para recuperar información de la base de datos sin modificar ningún dato. Estas solicitudes son idempotentes, lo que significa que hacer la misma solicitud una o más veces consecutivamente tiene el mismo efecto que hacerla solo una vez, y no produce cambios en el servidor.\n\n**Uso**:\n\n1. **Recuperar Listados**: Utiliza las solicitudes GET para obtener listados completos de entidades como alumnos, cursos, programas sociales, entre otros. Estas solicitudes devuelven un array con los objetos solicitados.\n\n   - **Ejemplo**: `GET /alumnos` puede devolver una lista de todos los alumnos registrados en la base de datos.\n\n2. **Obtener Detalles**: Si deseas obtener información detallada de una entidad específica, puedes usar el identificador único de esa entidad en la solicitud GET.\n\n   - **Ejemplo**: `GET /alumnos/123` recuperará detalles del alumno con el ID 123.\n\n3. **Filtrar Información**: Las solicitudes GET también pueden incluir parámetros de consulta para filtrar los resultados devueltos por el servidor.\n\n   - **Ejemplo**: `GET /alumnos?curso=2B` podría devolver una lista de alumnos que están inscritos en el curso \"2B\".\n\n**Formato de Respuesta**:\n\nLas respuestas a las solicitudes GET generalmente se devuelven en formato JSON. Sin embargo, esto puede variar según la configuración de la API.\n\n**Autorización**:\n\nAunque las solicitudes GET son operaciones de solo lectura, algunas de ellas pueden requerir autenticación para proteger la información sensible. Asegúrate de proporcionar cualquier encabezado o token de autorización necesario al hacer tu solicitud.\n\n**Consideraciones**:\n\n- Asegúrate de no incluir información confidencial en la URL de tu solicitud GET, ya que las URLs pueden quedar registradas en logs o ser vistas por terceros.\n- Ten en cuenta los límites de paginación. Si estás recuperando grandes cantidades de datos, la API puede limitar la cantidad de entradas devueltas en una sola solicitud y requerir paginación.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "POST",
@@ -3647,7 +3671,30 @@
 					]
 				}
 			],
-			"description": "### **Solicitudes POST en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes POST en el Sistema de Matrículas están destinadas a la creación de nuevos registros o recursos. Estas solicitudes transmiten datos al servidor para que sean procesados y almacenados. En el contexto del sistema de matrículas, esto se traduce en la inscripción de nuevos estudiantes, registro de nuevos cursos, entre otros.\n\n**Uso**:\n\n1. **Matriculación de Estudiantes**: A través de una solicitud POST, puedes registrar a un nuevo estudiante en un curso específico, proporcionando todos los detalles relevantes.\n\n   - **Ejemplo**: `POST /matriculas` con un cuerpo que incluye detalles del estudiante, curso seleccionado y fecha de matriculación.\n\n2. **Registro de Nuevos Cursos**: Si se introduce un nuevo curso o programa, se puede registrar en el sistema mediante una solicitud POST.\n\n   - **Ejemplo**: `POST /cursos` con un cuerpo que detalla el nombre del curso, descripción, duración, etc.\n\n3. **Otros Registros Relacionados**: Otros aspectos del proceso de matriculación, como la inclusión de programas de asistencia, detalles de pago o documentos requeridos, también pueden ser manejados mediante solicitudes POST.\n\n**Formato de Entrada**:\n\nLas solicitudes POST generalmente requieren un cuerpo en el formato JSON que contenga todos los detalles necesarios para el recurso que se está creando. Los detalles exactos variarán según el recurso específico que se esté registrando.\n\n**Respuestas y Confirmaciones**:\n\nDespués de enviar una solicitud POST, el servidor generalmente devuelve una respuesta que indica el éxito o fallo de la operación. Para operaciones exitosas, es común que la respuesta incluya un identificador único del recurso creado y, a veces, un resumen de los datos ingresados.\n\n**Autorización**:\n\nDado que las solicitudes POST pueden agregar nuevos datos al sistema, es esencial que estén protegidas adecuadamente. A menudo, estas solicitudes requerirán autenticación y autorización, asegurándose de que solo los usuarios con los permisos adecuados puedan realizarlas.\n\n**Consideraciones**:\n\n- Es vital validar los datos enviados en una solicitud POST para asegurar la integridad y la seguridad de la información en el sistema.\n- Ten en cuenta las restricciones o reglas del negocio. Por ejemplo, no permitir la matriculación de un estudiante en dos cursos simultáneos si eso va en contra de las reglas de la institución."
+			"description": "### **Solicitudes POST en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes POST en el Sistema de Matrículas están destinadas a la creación de nuevos registros o recursos. Estas solicitudes transmiten datos al servidor para que sean procesados y almacenados. En el contexto del sistema de matrículas, esto se traduce en la inscripción de nuevos estudiantes, registro de nuevos cursos, entre otros.\n\n**Uso**:\n\n1. **Matriculación de Estudiantes**: A través de una solicitud POST, puedes registrar a un nuevo estudiante en un curso específico, proporcionando todos los detalles relevantes.\n\n   - **Ejemplo**: `POST /matriculas` con un cuerpo que incluye detalles del estudiante, curso seleccionado y fecha de matriculación.\n\n2. **Registro de Nuevos Cursos**: Si se introduce un nuevo curso o programa, se puede registrar en el sistema mediante una solicitud POST.\n\n   - **Ejemplo**: `POST /cursos` con un cuerpo que detalla el nombre del curso, descripción, duración, etc.\n\n3. **Otros Registros Relacionados**: Otros aspectos del proceso de matriculación, como la inclusión de programas de asistencia, detalles de pago o documentos requeridos, también pueden ser manejados mediante solicitudes POST.\n\n**Formato de Entrada**:\n\nLas solicitudes POST generalmente requieren un cuerpo en el formato JSON que contenga todos los detalles necesarios para el recurso que se está creando. Los detalles exactos variarán según el recurso específico que se esté registrando.\n\n**Respuestas y Confirmaciones**:\n\nDespués de enviar una solicitud POST, el servidor generalmente devuelve una respuesta que indica el éxito o fallo de la operación. Para operaciones exitosas, es común que la respuesta incluya un identificador único del recurso creado y, a veces, un resumen de los datos ingresados.\n\n**Autorización**:\n\nDado que las solicitudes POST pueden agregar nuevos datos al sistema, es esencial que estén protegidas adecuadamente. A menudo, estas solicitudes requerirán autenticación y autorización, asegurándose de que solo los usuarios con los permisos adecuados puedan realizarlas.\n\n**Consideraciones**:\n\n- Es vital validar los datos enviados en una solicitud POST para asegurar la integridad y la seguridad de la información en el sistema.\n- Ten en cuenta las restricciones o reglas del negocio. Por ejemplo, no permitir la matriculación de un estudiante en dos cursos simultáneos si eso va en contra de las reglas de la institución.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "PUT",
@@ -5122,7 +5169,30 @@
 					]
 				}
 			],
-			"description": "### **Solicitudes PUT en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes PUT en el Sistema de Matrículas se utilizan para actualizar los detalles de registros existentes. A diferencia de `POST`, que se centra en la creación de nuevos recursos, `PUT` se encarga de modificar recursos ya existentes utilizando la información proporcionada.\n\n**Uso**:\n\n1. **Actualización de Detalles de Estudiantes**: Si un estudiante cambia de dirección, teléfono, o cualquier otro dato personal, puedes utilizar una solicitud PUT para actualizar esa información.\n\n   - **Ejemplo**: `PUT /estudiantes/{idEstudiante}` con un cuerpo que incluye los nuevos detalles del estudiante.\n\n2. **Modificación de Cursos**: Si un curso necesita ser actualizado en términos de contenido, horario o cualquier otro detalle, una solicitud PUT es la indicada.\n\n   - **Ejemplo**: `PUT /cursos/{idCurso}` con un cuerpo que detalla los cambios del curso.\n\n3. **Cambios en Matriculación**: Si hay cambios en la matriculación de un estudiante, como traslados a otro curso o modificaciones en la fecha, se pueden realizar mediante una solicitud PUT.\n\n**Formato de Entrada**:\n\nLas solicitudes PUT, al igual que las POST, requieren un cuerpo, generalmente en formato JSON, que contenga los detalles que se desean actualizar. Es importante asegurarse de que los datos proporcionados estén completos y sean correctos para evitar inconsistencias.\n\n**Respuestas y Confirmaciones**:\n\nTras enviar una solicitud PUT, el servidor suele devolver una respuesta que indica si la actualización fue exitosa o no. En caso de éxito, puede devolver el recurso actualizado o simplemente un código de estado que indique que la operación se realizó correctamente."
+			"description": "### **Solicitudes PUT en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes PUT en el Sistema de Matrículas se utilizan para actualizar los detalles de registros existentes. A diferencia de `POST`, que se centra en la creación de nuevos recursos, `PUT` se encarga de modificar recursos ya existentes utilizando la información proporcionada.\n\n**Uso**:\n\n1. **Actualización de Detalles de Estudiantes**: Si un estudiante cambia de dirección, teléfono, o cualquier otro dato personal, puedes utilizar una solicitud PUT para actualizar esa información.\n\n   - **Ejemplo**: `PUT /estudiantes/{idEstudiante}` con un cuerpo que incluye los nuevos detalles del estudiante.\n\n2. **Modificación de Cursos**: Si un curso necesita ser actualizado en términos de contenido, horario o cualquier otro detalle, una solicitud PUT es la indicada.\n\n   - **Ejemplo**: `PUT /cursos/{idCurso}` con un cuerpo que detalla los cambios del curso.\n\n3. **Cambios en Matriculación**: Si hay cambios en la matriculación de un estudiante, como traslados a otro curso o modificaciones en la fecha, se pueden realizar mediante una solicitud PUT.\n\n**Formato de Entrada**:\n\nLas solicitudes PUT, al igual que las POST, requieren un cuerpo, generalmente en formato JSON, que contenga los detalles que se desean actualizar. Es importante asegurarse de que los datos proporcionados estén completos y sean correctos para evitar inconsistencias.\n\n**Respuestas y Confirmaciones**:\n\nTras enviar una solicitud PUT, el servidor suele devolver una respuesta que indica si la actualización fue exitosa o no. En caso de éxito, puede devolver el recurso actualizado o simplemente un código de estado que indique que la operación se realizó correctamente.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "DELETE",
@@ -5134,7 +5204,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 8\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5164,7 +5234,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarRegion",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 8\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarRegion",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarRegion",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 09:17:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de región eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarComuna",
@@ -5173,7 +5317,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 19\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5203,7 +5347,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarComuna",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 19\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarComuna",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarComuna",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:04:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de comuna eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarProgramaSocial",
@@ -5212,7 +5430,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 6\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5242,7 +5460,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarProgramaSocial",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarProgramaSocial",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarProgramaSocial",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:07:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de programa social eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarEtnia",
@@ -5251,7 +5543,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 5\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5281,7 +5573,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarEtnia",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarEtnia",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarEtnia",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:10:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de etnia eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarCurso",
@@ -5290,7 +5656,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 5\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5320,7 +5686,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarCurso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarCurso",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarCurso",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:21:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de curso eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarColegioAnterior",
@@ -5329,7 +5769,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 6\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5359,7 +5799,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarColegioAnterior",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarColegioAnterior",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarColegioAnterior",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:22:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de colegioAnterior eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarUsuario",
@@ -5368,7 +5882,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 23\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5398,7 +5912,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarUsuario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:42:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Usuario eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarAlumno",
@@ -5407,7 +5995,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"idUsuario\": 23\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5437,85 +6025,81 @@
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "eliminarMatricula",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
+					"response": [
+						{
+							"name": "eliminarAlumno",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarAlumno",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarAlumno",
+											"value": null
+										}
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"path": [
-								"api",
-								"v1",
-								"2023",
-								"index.php"
-							],
-							"query": [
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
 								{
-									"key": "eliminarMatricula",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "eliminarSalud",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"path": [
-								"api",
-								"v1",
-								"2023",
-								"index.php"
-							],
-							"query": [
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:41:55 GMT"
+								},
 								{
-									"key": "eliminarMatricula",
-									"value": null
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
 								}
-							]
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Alumno eliminado con éxito\"\n}"
 						}
-					},
-					"response": []
+					]
 				},
 				{
 					"name": "eliminarDocumentoApoderado",
@@ -5524,7 +6108,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5554,7 +6138,81 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarDocumentoApoderado",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarDocumentoApoderado",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarDocumentoApoderado",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:27:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos eliminados con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarDocumentoCompartido",
@@ -5563,7 +6221,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5593,7 +6251,307 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarDocumentoCompartido",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarDocumentoCompartido",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarDocumentoCompartido",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:29:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Documentos compartidos eliminados con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminarMatricula",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 20\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarMatricula",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminarMatricula",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarMatricula",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarMatricula",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:30:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de matrícula eliminado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminarSalud",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarSalud",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"v1",
+								"2023",
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "eliminarSalud",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminarSalud",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idAlumno\": 23\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarSalud",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarSalud",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:41:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de salud eliminado con éxito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "eliminarRolUsuario",
@@ -5602,7 +6560,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"id\": 9\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5632,9 +6590,84 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "eliminarRolUsuario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 9\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1/api/v1/2023/index.php?eliminarRolUsuario",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"api",
+										"v1",
+										"2023",
+										"index.php"
+									],
+									"query": [
+										{
+											"key": "eliminarRolUsuario",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 11 Aug 2023 12:45:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registro de rol eliminado con éxito\"\n}"
+						}
+					]
 				}
-			]
+			],
+			"description": "### **Solicitudes DELETE en el Sistema de Matrículas**\n\n**Descripción General**:\n\nLas solicitudes DELETE en el Sistema de Matrículas se utilizan para eliminar registros o recursos específicos. Estas solicitudes aseguran que ciertos datos no estén más disponibles o activos en el sistema, ya sea porque ya no son relevantes o porque se ha solicitado su eliminación por alguna razón administrativa.\n\n**Uso**:\n\n1. **Eliminación de Estudiantes**: Si por alguna razón un estudiante deja de ser parte de la institución y su registro debe ser eliminado completamente, se usaría una solicitud DELETE.\n\n   - **Ejemplo**: `DELETE /estudiantes/{idEstudiante}`.\n\n2. **Eliminación de Cursos**: Si un curso deja de ofrecerse o se decide retirarlo del programa educativo, se puede utilizar DELETE para removerlo del sistema.\n\n   - **Ejemplo**: `DELETE /cursos/{idCurso}`.\n\n3. **Anulación de Matriculación**: En el caso de que se necesite anular o cancelar la matrícula de un estudiante en un curso específico, se podría usar DELETE para este propósito.\n\n**Formato de Entrada**:\n\nLas solicitudes DELETE típicamente no requieren un cuerpo de mensaje, ya que la URL (a menudo acompañada de un identificador específico) proporciona toda la información necesaria para determinar qué recurso debe ser eliminado. Sin embargo, algunos sistemas pueden requerir un token de autenticación o alguna otra forma de autorización en el encabezado de la solicitud.\n\n**Respuestas y Confirmaciones**:\n\nDespués de enviar una solicitud DELETE, el servidor generalmente devuelve una respuesta que indica si la eliminación fue exitosa o no. Si la operación se realizó con éxito, es común recibir un código de estado HTTP 200 (OK) o 204 (No Content), sin ningún contenido en el cuerpo de la respuesta.\n\n**Autorización**:\n\nDado que las solicitudes DELETE pueden resultar en la pérdida irreversible de datos, es fundamental que estén protegidas adecuadamente. Sólo los usuarios con permisos adecuados (por ejemplo, administradores o personal autorizado) deben ser capaces de enviar y ejecutar estas solicitudes.\n\n**Consideraciones**:\n\n- Es importante tener precaución al usar DELETE, ya que la acción suele ser irreversible.\n- En lugar de eliminar completamente un registro, algunas implementaciones pueden optar por marcar el registro como \"inactivo\" o \"eliminado\" sin eliminarlo físicamente de la base de datos. Esto puede ser útil para mantener un historial y para posibles auditorías."
 		}
 	]
 }

@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "La API de Gestión Escolar permite a los usuarios administrar, consultar y modificar información relacionada con el proceso académico, salud, etnias, regiones, comunas, programas sociales, cursos y colegios anteriores de los estudiantes. A través de esta API, los administradores y personal autorizado pueden acceder y manipular de manera eficiente la información almacenada en la base de datos del sistema.",
-        "version": "1.0.6",
+        "version": "1.1.9",
         "title": "Gestion de Matriculas Escolar",
         "termsOfService": "http://127.0.0.1/documentacion.json",
         "contact": {
@@ -74,8 +74,8 @@
         }
     ],
     "schemes": [
-        "https",
-        "http"
+        "http",
+        "https"
     ],
     "paths": {
         "/api/v1/2023/index.php?version": {
@@ -1356,12 +1356,3750 @@
                     }
                 }
             }
-        }       
-        
-
-
-
-        
+        },
+        "/api/v1/2023/index.php?agregarRegion": {
+            "post": {
+                "tags": ["Regiones"],
+                "summary": "Añade una nueva región al sistema",
+                "description": "Este endpoint permite agregar una nueva región al sistema proporcionando el nombre de la región.",
+                "operationId": "postAgregarRegion",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Nombre de la región a agregar",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "nombre": {
+                                    "type": "string",
+                                    "example": "ohiggins 9"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Región añadida con éxito"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Petición incorrecta",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Los datos proporcionados son inválidos"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al añadir la región"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?agregarComuna": {
+            "post": {
+                "tags": ["Comunas"],
+                "summary": "Añade una nueva comuna al sistema",
+                "description": "Este endpoint permite agregar una nueva comuna al sistema proporcionando el nombre de la comuna y el ID de la región a la que pertenece.",
+                "operationId": "postAgregarComuna",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Datos de la comuna a agregar",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "nombre": {
+                                    "type": "string",
+                                    "example": "Comuna F1"
+                                },
+                                "idRegion": {
+                                    "type": "integer",
+                                    "example": 7
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Comuna añadida con éxito"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Petición incorrecta",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Los datos proporcionados son inválidos"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Error al añadir la comuna"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/2023/index.php?agregarProgramaSocial": {
+                "post": {
+                    "tags": ["Programas Sociales"],
+                    "summary": "Añade un nuevo programa social al sistema",
+                    "description": "Este endpoint permite agregar un nuevo programa social al sistema proporcionando el nombre del programa.",
+                    "operationId": "postAgregarProgramaSocial",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del programa social a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Programa Personalmente"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Programa añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el programa"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarEtnia": {
+                "post": {
+                    "tags": ["Etnias"],
+                    "summary": "Añade una nueva etnia al sistema",
+                    "description": "Este endpoint permite agregar una nueva etnia al sistema proporcionando el nombre de la etnia.",
+                    "operationId": "postAgregarEtnia",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la etnia a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Etnia D"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Etnia añadida con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir la etnia"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarCurso": {
+                "post": {
+                    "tags": ["Cursos"],
+                    "summary": "Añade un nuevo curso al sistema",
+                    "description": "Este endpoint permite agregar un nuevo curso al sistema proporcionando el nombre del curso.",
+                    "operationId": "postAgregarCurso",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del curso a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Curso 3C"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Curso añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el curso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarColegioAnterior": {
+                "post": {
+                    "tags": [
+                        "Colegios Anteriores"
+                    ],
+                    "summary": "Añade un nuevo colegio anterior al sistema",
+                    "description": "Este endpoint permite agregar un nuevo colegio anterior al sistema proporcionando el nombre del colegio.",
+                    "operationId": "postAgregarColegioAnterior",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del colegio a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Colegio C"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Colegio añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el colegio"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarUsuario": {
+                "post": {
+                    "tags": [
+                        "Usuarios"
+                    ],
+                    "summary": "Añade un nuevo usuario al sistema",
+                    "description": "Este endpoint permite agregar un nuevo usuario al sistema proporcionando detalles como nombre, rut, dirección, correo electrónico, entre otros.",
+                    "operationId": "postAgregarUsuario",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del usuario a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Juan Pablo Perez"
+                                    },
+                                    "rut": {
+                                        "type": "string",
+                                        "example": "16634683-1"
+                                    },
+                                    "fechaNacimiento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2008-02-15"
+                                    },
+                                    "domicilio": {
+                                        "type": "string",
+                                        "example": "Calle Alumnos"
+                                    },
+                                    "calle": {
+                                        "type": "string",
+                                        "example": "Calle A"
+                                    },
+                                    "numero": {
+                                        "type": "string",
+                                        "example": "15"
+                                    },
+                                    "idComuna": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "juanperezactualizado@gmail.com"
+                                    },
+                                    "telefono": {
+                                        "type": "string",
+                                        "example": "987654321"
+                                    },
+                                    "nivel": {
+                                        "type": "integer",
+                                        "example": 4
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Usuario añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el usuario"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarAlumno": {
+                "post": {
+                    "tags": [
+                        "Alumnos"
+                    ],
+                    "summary": "Añade un nuevo alumno al sistema",
+                    "description": "Este endpoint permite agregar un nuevo alumno al sistema proporcionando detalles como ID del usuario, sexo, programa social, etnia, entre otros.",
+                    "operationId": "postAgregarAlumno",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del alumno a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idUsuario": {
+                                        "type": "integer",
+                                        "example": 23
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "Masculino"
+                                    },
+                                    "viveCon": {
+                                        "type": "string",
+                                        "example": "Padres"
+                                    },
+                                    "viveConEspecificar": {
+                                        "type": "string",
+                                        "example": "Padre y Madre"
+                                    },
+                                    "idProgramaSocial": {
+                                        "type": "integer",
+                                        "example": 5
+                                    },
+                                    "idEtnia": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "repetidoCurso": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "idColegioAnterior": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "necesitaTransporte": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "sectorTransporte": {
+                                        "type": "string",
+                                        "example": "Norte"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Alumno añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el alumno"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarMatricula": {
+                "post": {
+                    "tags": ["Matrículas"],
+                    "summary": "Añade una nueva matrícula al sistema",
+                    "description": "Este endpoint permite agregar una nueva matrícula al sistema proporcionando detalles del alumno, funcionario, curso, fechas de matriculación y retiro.",
+                    "operationId": "postAgregarMatricula",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la matrícula a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "example": 23
+                                    },
+                                    "idFuncionario": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "idCurso": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "fechaMatricula": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-08-10"
+                                    },
+                                    "fechaRetiro": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-09-10"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Matrícula añadida con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir la matrícula"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarSalud": {
+                "post": {
+                    "tags": ["Salud"],
+                    "summary": "Añade nuevos datos de salud al sistema",
+                    "description": "Este endpoint permite agregar nuevos datos de salud de un alumno al sistema.",
+                    "operationId": "postAgregarSalud",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de salud a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "example": 23
+                                    },
+                                    "tratamientoMedico": {
+                                        "type": "string",
+                                        "example": "Tratamiento F"
+                                    },
+                                    "programaEscolar": {
+                                        "type": "string",
+                                        "example": "Programa 6"
+                                    },
+                                    "contraindicacionMedica": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "alergiaMedicamento": {
+                                        "type": "string",
+                                        "example": "Alergia medicamento F"
+                                    },
+                                    "alergiaAlimento": {
+                                        "type": "string",
+                                        "example": "Alergia alimento F"
+                                    },
+                                    "antecedentesTrastornos": {
+                                        "type": "string",
+                                        "example": "Antecedente F"
+                                    },
+                                    "previsionSocial": {
+                                        "type": "string",
+                                        "example": "FONASA"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Datos de salud añadidos con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir datos de salud"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarDocumentoApoderado": {
+                "post": {
+                    "tags": ["Documentos Apoderado"],
+                    "summary": "Añade documentos de apoderado al sistema",
+                    "description": "Este endpoint permite agregar documentos de apoderado de un alumno al sistema.",
+                    "operationId": "postAgregarDocumentoApoderado",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Documentos de apoderado a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "example": 23
+                                    },
+                                    "certificadoEstudios": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "informePersonalidad": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "informeNotas": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "fotocopiaHojaVida": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "boletaAporte": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "certificadoMedico": {
+                                        "type": "string",
+                                        "example": "No"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos añadidos con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir documentos"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarDocumentoCompartido": {
+                "post": {
+                    "tags": ["Documentos Compartidos"],
+                    "summary": "Añade documentos compartidos al sistema",
+                    "description": "Este endpoint permite agregar documentos compartidos de un alumno al sistema.",
+                    "operationId": "postAgregarDocumentoCompartido",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Documentos compartidos a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "example": 23
+                                    },
+                                    "reglamentoInterno": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "textoEscolarGratis": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "reglamentoEvaluacion": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos añadidos con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir documentos"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?agregarRolUsuario": {
+                "post": {
+                    "tags": ["Roles de Usuario"],
+                    "summary": "Añade un nuevo rol de usuario al sistema",
+                    "description": "Este endpoint permite agregar un nuevo rol de usuario al sistema.",
+                    "operationId": "postAgregarRolUsuario",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del nuevo rol a agregar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Rol Xx"
+                                    },
+                                    "nivel": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 4
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Rol añadido con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al añadir el rol"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarRegion": {
+                "put": {
+                    "tags": ["Regiones"],
+                    "summary": "Actualiza una región existente en el sistema",
+                    "description": "Este endpoint permite actualizar una región existente en el sistema.",
+                    "operationId": "putActualizarRegion",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la región a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 7
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Región FX"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Región actualizada con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Región no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Región no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar la región"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarComuna": {
+                "put": {
+                    "tags": ["Comunas"],
+                    "summary": "Actualiza una comuna existente en el sistema",
+                    "description": "Este endpoint permite actualizar una comuna existente en el sistema.",
+                    "operationId": "putActualizarComuna",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la comuna a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 7
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Comuna B3"
+                                    },
+                                    "idRegion": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 2
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Comuna actualizada con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Comuna no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Comuna no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar la comuna"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarProgramaSocial": {
+                "put": {
+                    "tags": ["Programas Sociales"],
+                    "summary": "Actualiza un programa social existente en el sistema",
+                    "description": "Este endpoint permite actualizar un programa social existente en el sistema.",
+                    "operationId": "putActualizarProgramaSocial",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del programa social a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 6
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Programa Yota"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Programa Social actualizado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Programa Social no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Programa Social no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar el programa social"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarEtnia": {
+                "put": {
+                    "tags": ["Etnias"],
+                    "summary": "Actualiza una etnia existente en el sistema",
+                    "description": "Este endpoint permite actualizar una etnia existente en el sistema.",
+                    "operationId": "putActualizarEtnia",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la etnia a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 5
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Etnia Dd0"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Etnia actualizada con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Etnia no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Etnia no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar la etnia"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarCurso": {
+                "put": {
+                    "tags": ["Cursos"],
+                    "summary": "Actualiza un curso existente en el sistema",
+                    "description": "Este endpoint permite actualizar un curso existente en el sistema.",
+                    "operationId": "putActualizarCurso",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del curso a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 5
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Curso 3Co"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Curso actualizado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Curso no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Curso no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar el curso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarColegioAnterior": {
+                "put": {
+                    "tags": ["Colegios Anteriores"],
+                    "summary": "Actualiza un colegio anterior existente en el sistema",
+                    "description": "Este endpoint permite actualizar un colegio anterior existente en el sistema.",
+                    "operationId": "putActualizarColegioAnterior",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del colegio anterior a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 6
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Colegio Modificado C"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Colegio anterior actualizado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Colegio anterior no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Colegio anterior no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar el colegio anterior"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarUsuario": {
+                "put": {
+                    "tags": ["Usuarios"],
+                    "summary": "Actualiza un usuario existente en el sistema",
+                    "description": "Este endpoint permite actualizar la información de un usuario existente en el sistema.",
+                    "operationId": "putActualizarUsuario",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del usuario a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 7
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Miguel Angel Gonzalez"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "miguel.php@gmail.com"
+                                    },
+                                    "telefono": {
+                                        "type": "string",
+                                        "example": "922265898"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Datos de usuario actualizados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Usuario no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Usuario no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar los datos del usuario"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarAlumno": {
+                "put": {
+                    "tags": ["Alumnos"],
+                    "summary": "Actualiza un alumno existente en el sistema",
+                    "description": "Este endpoint permite actualizar la información de un alumno existente basado en su `idUsuario`.",
+                    "operationId": "putActualizarAlumno",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos del alumno a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idUsuario": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 2
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "Masculino"
+                                    },
+                                    "viveConEspecificar": {
+                                        "type": "string",
+                                        "example": "Padre y Madre"
+                                    },
+                                    "sectorTransporte": {
+                                        "type": "string",
+                                        "example": "Sanfurgo"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Alumno actualizado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Alumno no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Alumno no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar los datos del alumno"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarMatricula": {
+                "put": {
+                    "tags": ["Matrículas"],
+                    "summary": "Actualiza una matrícula existente en el sistema",
+                    "description": "Este endpoint permite actualizar la fecha de retiro de una matrícula existente basado en su `id`.",
+                    "operationId": "putActualizarMatricula",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de la matrícula a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 1
+                                    },
+                                    "fechaRetiro": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-08-07"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Matrícula actualizada con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Matrícula no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Matrícula no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar la matrícula"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarSalud": {
+                "put": {
+                    "tags": ["Salud"],
+                    "summary": "Actualiza los datos de salud de un alumno existente en el sistema",
+                    "description": "Este endpoint permite actualizar los datos de salud de un alumno existente basado en su `idAlumno`.",
+                    "operationId": "putActualizarSalud",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Datos de salud a actualizar del alumno",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 3
+                                    },
+                                    "tratamientoMedico": {
+                                        "type": "string",
+                                        "example": "Tratamiento H"
+                                    },
+                                    "programaEscolar": {
+                                        "type": "string",
+                                        "example": "Programa 7"
+                                    },
+                                    "antecedentesTrastornos": {
+                                        "type": "string",
+                                        "example": "Antecedente G"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Datos de salud actualizados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Datos de salud del alumno no encontrados",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Datos de salud del alumno no encontrados"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar los datos de salud"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarDocumentoApoderado": {
+                "put": {
+                    "tags": ["Documentos Apoderado"],
+                    "summary": "Actualiza los documentos proporcionados por el apoderado de un alumno existente",
+                    "description": "Este endpoint permite actualizar los documentos entregados por el apoderado de un alumno existente basado en su `idAlumno`.",
+                    "operationId": "putActualizarDocumentoApoderado",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Documentos del apoderado a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 2
+                                    },
+                                    "certificadoEstudios": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "informePersonalidad": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "informeNotas": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "fotocopiaHojaVida": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "boletaAporte": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "certificadoMedico": {
+                                        "type": "string",
+                                        "example": "No"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos del apoderado actualizados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Documentos del apoderado del alumno no encontrados",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos del apoderado del alumno no encontrados"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar los documentos del apoderado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarDocumentoCompartido": {
+                "put": {
+                    "tags": ["Documentos Compartidos"],
+                    "summary": "Actualiza los documentos compartidos de un alumno existente",
+                    "description": "Este endpoint permite actualizar los documentos compartidos de un alumno existente basado en su `idAlumno`.",
+                    "operationId": "putActualizarDocumentoCompartido",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Documentos compartidos a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 2
+                                    },
+                                    "reglamentoInterno": {
+                                        "type": "string",
+                                        "example": "No"
+                                    },
+                                    "textoEscolarGratis": {
+                                        "type": "string",
+                                        "example": "Si"
+                                    },
+                                    "reglamentoEvaluacion": {
+                                        "type": "string",
+                                        "example": "No"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos compartidos actualizados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Documentos compartidos del alumno no encontrados",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos compartidos del alumno no encontrados"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar los documentos compartidos"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?actualizarRolUsuario": {
+                "put": {
+                    "tags": ["Roles de Usuario"],
+                    "summary": "Actualiza un rol de usuario existente",
+                    "description": "Este endpoint permite actualizar un rol de usuario existente basado en su `id`.",
+                    "operationId": "putActualizarRolUsuario",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "Rol de usuario a actualizar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 4
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "nivel": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 5
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Rol de usuario actualizado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Rol de usuario no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Rol de usuario no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al actualizar el rol de usuario"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarRegion": {
+                "delete": {
+                    "tags": ["Regiones"],
+                    "summary": "Elimina una región basada en su `id`",
+                    "description": "Este endpoint permite eliminar una región basada en su `id`.",
+                    "operationId": "deleteEliminarRegion",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID de la región a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 8
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de región eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Región no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Región no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar la región"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarComuna": {
+                "delete": {
+                    "tags": ["Comunas"],
+                    "summary": "Elimina una comuna basada en su `id`",
+                    "description": "Este endpoint permite eliminar una comuna basada en su `id`.",
+                    "operationId": "deleteEliminarComuna",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID de la comuna a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 19
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de comuna eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Comuna no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Comuna no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar la comuna"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarProgramaSocial": {
+                "delete": {
+                    "tags": ["Programas Sociales"],
+                    "summary": "Elimina un programa social basado en su `id`",
+                    "description": "Este endpoint permite eliminar un programa social basado en su `id`.",
+                    "operationId": "deleteEliminarProgramaSocial",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del programa social a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 6
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de programa social eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Programa social no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Programa social no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el programa social"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarEtnia": {
+                "delete": {
+                    "tags": ["Etnias"],
+                    "summary": "Elimina una etnia basado en su `id`",
+                    "description": "Este endpoint permite eliminar una etnia basado en su `id`.",
+                    "operationId": "deleteEliminarEtnia",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID de la etnia a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 5
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de etnia eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Etnia no encontrada",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Etnia no encontrada"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar la etnia"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarCurso": {
+                "delete": {
+                    "tags": ["Cursos"],
+                    "summary": "Elimina un curso basado en su `id`",
+                    "description": "Este endpoint permite eliminar un curso basado en su `id`.",
+                    "operationId": "deleteEliminarCurso",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del curso a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 5
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de curso eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Curso no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Curso no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el curso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarColegioAnterior": {
+                "delete": {
+                    "tags": ["Colegios Anteriores"],
+                    "summary": "Elimina un colegio anterior basado en su `id`",
+                    "description": "Este endpoint permite eliminar un registro de colegio anterior basado en su `id`.",
+                    "operationId": "deleteEliminarColegioAnterior",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del colegio anterior a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 6
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de colegioAnterior eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Colegio anterior no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Colegio anterior no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el colegio anterior"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarUsuario": {
+                "delete": {
+                    "tags": ["Usuarios"],
+                    "summary": "Elimina un usuario basado en su `id`",
+                    "description": "Este endpoint permite eliminar un usuario por su `id`.",
+                    "operationId": "deleteEliminarUsuario",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del usuario a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 23
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Usuario eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Usuario no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Usuario no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el usuario"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarAlumno": {
+                "delete": {
+                    "tags": ["Alumnos"],
+                    "summary": "Elimina un alumno basado en su `idUsuario`",
+                    "description": "Este endpoint permite eliminar un alumno por su `idUsuario`.",
+                    "operationId": "deleteEliminarAlumno",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del usuario asociado al alumno a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idUsuario": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 23
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Alumno eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Alumno no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Alumno no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el alumno"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarDocumentoApoderado": {
+                "delete": {
+                    "tags": ["Documentos Apoderado"],
+                    "summary": "Elimina los documentos del apoderado asociados a un alumno por su `idAlumno`",
+                    "description": "Este endpoint permite eliminar los documentos del apoderado relacionados con un alumno específico, identificado por su `idAlumno`.",
+                    "operationId": "deleteEliminarDocumentoApoderado",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del alumno asociado a los documentos del apoderado a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 23
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos eliminados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Documentos del apoderado no encontrados para el alumno especificado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos del apoderado no encontrados para el alumno especificado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar los documentos del apoderado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarDocumentoCompartido": {
+                "delete": {
+                    "tags": ["Documentos Compartidos"],
+                    "summary": "Elimina los documentos compartidos asociados a un alumno por su `idAlumno`",
+                    "description": "Este endpoint permite eliminar los documentos compartidos relacionados con un alumno específico, identificado por su `idAlumno`.",
+                    "operationId": "deleteEliminarDocumentoCompartido",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del alumno asociado a los documentos compartidos a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 23
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos compartidos eliminados con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Documentos compartidos no encontrados para el alumno especificado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Documentos compartidos no encontrados para el alumno especificado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar los documentos compartidos"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarMatricula": {
+                "delete": {
+                    "tags": ["Matrículas"],
+                    "summary": "Elimina el registro de matrícula asociado a un alumno por su `idAlumno`",
+                    "description": "Este endpoint permite eliminar el registro de matrícula de un alumno específico, identificado por su `idAlumno`.",
+                    "operationId": "deleteEliminarMatricula",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del alumno asociado al registro de matrícula a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 20
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de matrícula eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Registro de matrícula no encontrado para el alumno especificado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de matrícula no encontrado para el alumno especificado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el registro de matrícula"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarSalud": {
+                "delete": {
+                    "tags": ["Salud"],
+                    "summary": "Elimina el registro de salud asociado a un alumno por su `idAlumno`",
+                    "description": "Este endpoint permite eliminar el registro de salud de un alumno específico, identificado por su `idAlumno`.",
+                    "operationId": "deleteEliminarSalud",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del alumno asociado al registro de salud a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idAlumno": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 23
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de salud eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Registro de salud no encontrado para el alumno especificado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de salud no encontrado para el alumno especificado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el registro de salud"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/v1/2023/index.php?eliminarRolUsuario": {
+                "delete": {
+                    "tags": ["Roles de Usuario"],
+                    "summary": "Elimina un rol de usuario por su `id`",
+                    "description": "Este endpoint permite eliminar un rol de usuario específico, identificado por su `id`.",
+                    "operationId": "deleteEliminarRolUsuario",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "description": "ID del rol de usuario a eliminar",
+                            "required": true,
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "example": 9
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Operación exitosa",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Registro de rol eliminado con éxito"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Petición incorrecta",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Los datos proporcionados son inválidos"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Rol no encontrado",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Rol no encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "500": {
+                            "description": "Error interno del servidor",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Error al eliminar el rol"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         
     },
     "definitions": {
@@ -1441,7 +5179,7 @@
             "properties": {
                 "idAlumno": { "type": "integer", "format": "int64" },
                 "nombrePrograma": { "type": "string" },
-                "detalle": { "type": "string" },
+                "detalle": { "type": "string" }
             }
         },
         "ColegiosAnteriores": {
@@ -1450,7 +5188,7 @@
                 "idAlumno": { "type": "integer", "format": "int64" },
                 "nombreColegio": { "type": "string" },
                 "anioEgreso": { "type": "integer", "format": "int32" },
-                "razonRetiro": { "type": "string" },
+                "razonRetiro": { "type": "string" }
             }
         },
         "Matriculas": {
@@ -1459,7 +5197,7 @@
                 "idAlumno": { "type": "integer", "format": "int64" },
                 "fechaMatricula": { "type": "string", "format": "date-time" },
                 "anioEscolar": { "type": "integer", "format": "int32" },
-                "estadoMatricula": { "type": "string" },
+                "estadoMatricula": { "type": "string" }
             }
         },
         
